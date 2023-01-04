@@ -1,0 +1,102 @@
+﻿@model IEnumerable<FreezyShop.Data.Entities.Order>
+@*
+@foreach (var item in Model){
+    <table>
+        <tbody>
+        <tr>
+            <td>
+                Date  
+            </td>
+            <td>
+                Delivery Date
+            </td>
+            <td>
+                Products
+            </td>
+               <td>
+                Order Status
+            </td>
+              <td>
+                Delivery Status
+            </td>
+        </tr>
+        </tbody>
+        <tr>
+            <td>
+                   @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                   @Html.DisplayFor(modelItem => item.DeliveryDate)
+            </td>
+            <td>
+                
+                   <a asp-action="ProductsInOrder" asp-route-orderid="@item.Id">View Products </a>
+            </td>
+             <td>
+                   @Html.DisplayFor(modelItem => item.OrderStatus)
+            </td>
+            <td>
+                   <a asp-action="DeleveryStatus">View Products </a>
+            </td>
+        </tr>
+    </table>
+
+}*@
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Order List</title>
+        <link rel="stylesheet" href="css/home.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    </head>
+
+<body>
+    <section id="interface">
+
+        <dir class="board">
+            <table width="100%">
+                <thead>
+                    <tr>
+                        <td>Date</td>
+                        <td>Date Delivery</td>
+                        <td>Order Status</td>
+                        <td>Total</td>
+                        <td>Product</td>
+                        <td>Delivery Status</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model){
+                    <tr>
+                        <td class="people">
+                                <div class="people-de">
+                                  @item.OrderDate.ToShortDateString()
+                                </div>                                
+                        </td>
+                        <td class="people-des">
+                           @item.DeliveryDate.ToShortDateString()
+                        </td>
+
+                        <td class="active">
+                            @Html.DisplayFor(modelItem => item.OrderStatus)
+                        </td>
+                        <td class="people-des">
+                           @Html.DisplayFor(modelItem => item.Value)
+                        </td>
+                        
+                        <td class="edit"><a asp-action="ProductsInOrder" asp-route-orderid="@item.Id" >See Products</a></td>
+
+                        <td class="edit"><a asp-action="DeliveryStatus" asp-route-orderid="@item.Id">See your deliverys</a></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </dir>
+    </section>
+
+
+</body>

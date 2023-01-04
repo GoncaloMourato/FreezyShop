@@ -1,0 +1,124 @@
+﻿@model FreezyShop.Models.ReturnViewModel
+
+
+@{
+    ViewData["Title"] = "Returns";
+    Layout = null;
+}
+@*<h4>Return</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="UserId" />
+            <div class="form-group">
+              
+                <select asp-for="Status" class="form-control">
+                    <option value="Accepted">Accepted</option>
+                    <option value="Accepted">Not Accepted</option>
+                </select>
+              </div>
+                 <div class="form-group">
+                     <input asp-for="AdicionalInfEmail" type="text" />
+                 </div>
+         
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@
+
+
+
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>View Request</title>
+        <style>
+            #img2{
+                background-image: url('@Model.Product.ImageFullPath1');
+                position : sticky;
+                padding-left: 40px;
+                background-size: 30px;
+                background-repeat: no-repeat;
+            }
+        </style>
+        <link rel="stylesheet" href="~/css/ViewRequest.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    </head>
+<body>
+
+    <div class="container">
+        <h1>View Request</h1>
+
+    <div class="requestbox">
+        <div class="request">
+            <h3>User Request</h3>
+           <form >
+            <input type="hidden"  asp-for="Id" />
+         
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="user">User:</label>
+                        <input type="text" value="@Model.User.Email" style="margin-right: 20px;"readonly>
+                    </div>
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="productname">Product Name:</label>
+                        <input id="img2" type="text" value="@Model.Product.Name" placeholder="product name" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label for="productname">Reason:</label>
+                        <input type="text" value="@Model.Reason" style="margin-right: 20px;" readonly>
+                    </div>
+                </div>
+                <label for="message">Descripton:</label>
+                <textarea type="text"  rows="3" readonly>@Model.Description</textarea>
+
+                <label for="Photo">Photo:</label>
+                <img src="@Url.Content(@Model.ImageFullPath1)">
+            </form>
+
+        </div>
+        <div class="answer">
+            <h3>Answer</h3>
+       <div class="overlay">
+            <form method="post" id="form2">
+
+                <div class="select">
+                    <label for="reason">Reason</label>
+                    <select asp-for="Status" id="format">
+                        <option selected disabled>Choose</option>
+                        <option value="Approved">Approved</option>
+                        <option value="NotApproved">Not Approved</option>
+                        <option value="Returned">Returned</option>
+                    </select>
+                </div>
+
+                    <label  for="message">Information:</label>
+                    <textarea asp-for="AdicionalInfEmail" id="message"  rows="6"></textarea>
+                       
+                <div class="center">
+                    <input type="hidden"  asp-for="UserId"value="@Model.UserId" />
+                    <input type="submit" value="Send">
+                </div>
+
+
+            </form>
+        </div>
+
+        </div>
+    </div>
+</div>
+</body>

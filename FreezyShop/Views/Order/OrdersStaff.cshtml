@@ -1,0 +1,85 @@
+﻿@model FreezyShop.Models.OrdersViewModel
+@{
+    Layout = null;
+}
+  <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Orders</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link rel="stylesheet" href="~/css/Orders.css">
+    </head>
+
+<body>
+    <partial name="_Dashboard" />
+    <section style="    position: absolute;
+    margin-left: 316px;
+    width: 80%;" >
+            <h3 class="i-name">
+                Orders
+            </h3>
+
+            <dir class="board">
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <td>User</td>
+                            <td>Products</td>
+                            <td>Order</td>
+                            <td>Status</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                @foreach(var item in Model.Orders)
+                {
+                    <tr>
+                        
+                            <td class="orders-de">
+                                    <h5> @Html.DisplayFor(modelItem => item.User.NickName)</h5>
+                                    <p>@Html.DisplayFor(modelItem => item.User.Email)</p>
+                              
+                            </td>
+                            
+                            <td class="edit"><a asp-action="DetailOrderStaff" asp-route-id="@item.Id">See Products</a></td>
+                            <form asp-action="OrdersStatusStaff" method="post">
+                                
+                            <td>     
+
+                                <div class="select">
+                                    <select  asp-for="OrderStatus" id="format" required>
+                                        <option selected disabled>@item.OrderStatus</option>
+                                        <option value="Denied">Denied </option>
+                                        <option value="Processing">Processing</option>
+                                        <option value="Delivering">Delivering</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td>     
+
+                                <div class="select">
+                                    <select asp-for="DeleveryStatus" id="format" required>
+                                        <option selected disabled>@item.DeleveryStatus</option>
+                                        <option value="Processed">Processed</option>
+                                        <option value="Shipped">Shipped</option>
+                                        <option value="Enroute">Enroute</option>
+                                        <option value="Arrived">Arrived</option>
+                                    </select>
+                                  
+                                </div>
+                            </td>
+                            <td>
+                                <input type="hidden" value = "@item.Id" asp-for="Id">
+                                 <input type="submit" value="Update"  style="width: 163px; height: 56px;margin-top: 5px;" class="submit-btn">
+                            </td>
+
+                            </form>
+                        </tr>
+                }
+                
+                    </tbody>
+                </table>
+            </dir>
+            </section>
+</body>

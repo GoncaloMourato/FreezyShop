@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             x:Class="FreezyShopMobile.Prims.App">
+  <Application.Resources>
+
+    <!-- Application resource dictionary -->
+        <ResourceDictionary>
+            <!--Parameters-->
+            <x:String x:Key="UrlAPI">https://freezyshoop2.azurewebsites.net/</x:String>
+
+            <Color x:Key="ColorBackground">#dadff2</Color>
+            <Color x:Key="ColorPrimary">#bf85fa</Color>
+            <Color x:Key="ColorSecondary">#a86ce6</Color>
+            <Color x:Key="ColorDanger">#b89c8b</Color>
+            <Color x:Key="ColorAccent">#b89c8b</Color>
+            <Color x:Key="ColorFont">#0D0D0D</Color>
+            <Color x:Key="ColorFontInverse">#dadff2</Color>
+        </ResourceDictionary>
+
+  </Application.Resources>
+</prism:PrismApplication>

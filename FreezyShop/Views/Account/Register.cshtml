@@ -1,0 +1,74 @@
+﻿@model FreezyShop.Models.RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = null;
+}
+
+    <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/Register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <title>Register</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-image">
+            <img src="~/images/Register.png" style="    width: 700px;">
+        </div>
+        <div class="form">
+            <form method="post">
+                 <div asp-validation-summary="ModelOnly"></div>
+
+                <div class="form-header">
+                    <div class="title">
+                        <h1>Register</h1>
+                    </div>
+                    <div class="login-button">
+                        <button><a asp-controller="Account" asp-action="Login">Sign in</a></button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="FirstName">First Name</label>
+                        <input asp-for="FirstName" id="FirstName" type="text" placeholder="Enter your first name" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="LastName">Last Name</label>
+                        <input asp-for="LastName" id="LastName" type="text" placeholder="Enter your last name" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="Username">Username</label>
+                        <input asp-for="NickName" id="Username" type="text" placeholder="Enter your Username" required>
+                    </div>
+                
+                    <div class="input-box">
+                        <label for="Email">Email</label>
+                        <input asp-for="Email" id="Email" type="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="Password">Password</label>
+                        <input  asp-for="Password" id="Password" type="password" placeholder="Enter your passoword" required>
+                      
+                    </div>
+
+                    <div class="input-box">
+                        <label for="ConfirmPassword">Confirm Passoword</label>
+                        <input asp-for="ConfirmPassword" id="ConfirmPassword" type="password" placeholder="Confirm your passoword" required>
+                        
+                    </div>
+                </div>
+
+                <div class="continue-button">
+                    <input type="submit" value="Continue" />
+                    <span asp-validation-for="ConfirmPassword" class="text-warning"></span>
+                      <span asp-validation-for="Password" class="text-warning"></span>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>

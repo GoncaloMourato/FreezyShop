@@ -1,0 +1,203 @@
+﻿@model FreezyShop.Models.ProductViewModel
+@{
+    Layout = null;
+}
+
+      <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link rel="stylesheet" href="~/css/AddProducts.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/css/multi-select-tag.css">
+    </head>
+      
+<body>
+    <partial name="_Dashboard" />
+       <h2 style="position: absolute;padding-left: 300px;padding-top: 120px;">Add Product</h2>
+       <form asp-action="Create" method="post" enctype="multipart/form-data">
+     
+      
+    <div class="containerProducts" style="margin-right: 235px;">
+        <div class="overlayProducts">
+            <div id="formProducts" style="height: 800px;">
+
+                <div class="select" style="width: 90%;">   
+                    <label for="reason" >Categories</label>
+                    <select  id="categories" asp-for="CategoryIds" required asp-items="Model.Categories"  multiple>
+                      
+                    </select>
+                </div>
+
+                <div class="select" style="padding-top: 60px; width: 90%;">
+                    <label for="reason" >Sizes</label>
+                    <select  id="sizes" asp-for="Sizes" required multiple>
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                </div>
+
+                <div class="select" style="padding-top: 60px;">
+                    <label for="reason">Color</label>
+                    <select required  asp-for="Color" id="format">
+                        <option selected disabled>Choose Color</option>
+                        <option value="Black">Black</option>
+                        <option value="White">White</option>
+                        <option value="Grey">Grey</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Green">Green</option>
+                        <option value="Orange">Orange</option>
+                        <option value="Red">Red</option>
+                        <option value="Yellow">Yellow</option>
+                        <option value="Orange">Orange</option>
+                        <option value="Beige">Beige</option>
+                        <option value="Beige">Pink</option>
+                        
+                    </select>
+                </div>
+
+                <div class="select" style="padding-top: 60px;">
+                    <label for="reason">Gender</label>
+                    <select required asp-for="Gender" id="format">
+                       <option selected disabled>Choose Gender</option>
+                       <option value="Male">Male</option>
+                       <option value="Female">Female</option>
+                       <option value="Both">Both</option>
+                    </select>
+                </div>
+
+
+            </div>
+        </div>
+        
+        <div class="overlayProducts">
+            <div id="formProducts" style="height: 800px;">
+
+                <div id="nameproducts">
+                    <label for="message">Product name:</label>
+                    <input id="message"  asp-for="Name"placeholder="" required> 
+                </div>
+
+                <div id="dindinproducts">
+                    <label for="message" style="padding-top: 90px;">Price:</label>
+                    <input id="dindin"  asp-for="Price" placeholder="" required >€
+
+                </div>
+
+                <div id="messageproducts">
+                    <label for="message" style="padding-top: 90px;">Description:</label>
+                    <textarea id="message"   asp-for="Description" required placeholder="" rows="6"></textarea>
+                </div>
+
+                <div class="center" style="padding-top: 80px;">
+                    <input type="submit" value="Add Product">
+                </div>
+    
+            </div>
+        </div>
+
+        <div class="overlayProducts">
+            <div id="formProducts" style="height: 800px;">
+
+
+                <label for="image">Front image:</label>
+                    <label class="picture" tabindex="0">
+                    <input type="file" accept="image/*" id="photo" asp-for="ImageFile1" required class="picture__input">
+                    <span class="picture__image" style="width: 60%;"></span>
+                </label>
+
+                <label for="image">Back image:</label>
+                <label class="picture" tabindex="1">
+                <input type="file" accept="image/*" id="photo2" asp-for="ImageFile2" required class="picture__input2">
+                <span class="picture__image2" style="width: 60%;"></span>
+            </label>
+
+
+            </div>
+        </div>
+
+    </div>
+    </form>
+    <script>
+        const inputFile = document.querySelector('.picture__input');
+const pictureImage = document.querySelector('.picture__image');
+const pictureImageText = 'Choose Image';
+      pictureImage.innerHTML = pictureImageText;
+
+
+inputFile.addEventListener('change', function(e){
+    const inputTarget = e.target;
+    const file = inputTarget.files[0];
+
+    if(file){
+       const reader = new FileReader();
+
+        reader.addEventListener('load',function(e){
+            const readerTarget = e.target; 
+
+            const img = document.createElement('img');
+            img.src = readerTarget.result;
+            img.classList.add('picture__img');
+            pictureImage.innerHTML = '';
+
+            pictureImage.appendChild(img);
+        });
+
+       reader.readAsDataURL(file);
+    }
+    else{
+        pictureImage.innerHTML = pictureImageText;
+    }
+
+});
+    </script>
+    <script>
+const inputFile2 = document.querySelector('.picture__input2');
+const pictureImage2 = document.querySelector('.picture__image2');
+const pictureImage2Text = 'Choose Image';
+      pictureImage2.innerHTML = pictureImage2Text;
+
+
+inputFile2.addEventListener('change', function(a){
+    const inputTargeta = a.target;
+    const filea = inputTargeta.files[0];
+
+        if(filea){
+            const reader = new FileReader();
+
+        reader.addEventListener('load',function(a){
+            const readerTargeta = a.target; 
+
+            const img2 = document.createElement('img');
+            img2.src = readerTargeta.result;
+            img2.classList.add('picture__img2');
+            pictureImage2.innerHTML = '';
+
+            pictureImage2.appendChild(img2);
+        });
+
+       reader.readAsDataURL(filea);
+    }
+    else{
+        pictureImage2.innerHTML = pictureImage2Text;
+    }
+
+});
+
+    </script>
+
+
+      <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script>
+      <script>
+         new MultiSelectTag('categories')  // id
+         new MultiSelectTag('sizes')
+     </script>
+     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+</body>

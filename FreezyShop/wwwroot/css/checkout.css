@@ -1,0 +1,204 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    min-height: 100vh;
+    background: #E3E6F3;
+}
+
+    .container form {
+        padding: 20px;
+        width: 700px;
+        background: #fff;
+        box-shadow: 0 5px 10px rgba(0,0,0,.1);
+    }
+
+        .container form .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+            .container form .row .col {
+                flex: 1 1 250px;
+            }
+
+                .container form .row .col .title {
+                    font-size: 20px;
+                    color: #333;
+                    padding-bottom: 5px;
+                    text-transform: uppercase;
+                }
+
+                .container form .row .col .inputBox {
+                    margin: 15px 0;
+                }
+
+                    .container form .row .col .inputBox span {
+                        margin-bottom: 10px;
+                        display: block;
+                    }
+
+                    .container form .row .col .inputBox input {
+                        width: 100%;
+                        border: 1px solid #ccc;
+                        padding: 10px 15px;
+                        font-size: 15px;
+                        text-transform: none;
+                    }
+
+                        .container form .row .col .inputBox input:focus {
+                            border: 1px solid #000;
+                        }
+
+                .container form .row .col .flex {
+                    display: flex;
+                    gap: 15px;
+                }
+
+                    .container form .row .col .flex .inputBox {
+                        margin-top: 5px;
+                    }
+
+                .container form .row .col .inputBox img {
+                    height: 34px;
+                    margin-top: 5px;
+                    filter: drop-shadow(0 0 1px #000);
+                }
+
+        .container form .submit-btn {
+            width: 100%;
+            padding: 12px;
+            font-size: 17px;
+            background: #bf85fa;
+            color: #222;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+
+            .container form .submit-btn:hover {
+                background: #9468ac;
+            }
+
+
+
+            /* cardnumber*/
+
+#inputBox {
+    position: relative;
+    width: 100%;
+}
+
+#logo {
+    width: 46px;
+    height: 30px;
+    position: absolute;
+    top: 5px;
+    right: 7px;
+}
+
+.visa {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 0 no-repeat;
+}
+
+.mastercard {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -30px no-repeat;
+}
+
+.amex {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -60px no-repeat;
+}
+
+.diners {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -90px no-repeat;
+}
+
+.discover {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -120px no-repeat;
+}
+
+.shopping {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -150px no-repeat;
+}
+
+.naranja {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -180px no-repeat;
+}
+
+.qida {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -210px no-repeat;
+}
+
+.clubdia {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -240px no-repeat;
+}
+
+.musicred {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -270px no-repeat;
+}
+
+.nevada {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -300px no-repeat;
+}
+
+.tuya {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -330px no-repeat;
+}
+
+.laanonima {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -360px no-repeat;
+}
+
+.crediguia {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -390px no-repeat;
+}
+
+.patagonia {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -410px no-repeat;
+}
+
+.sol {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -440px no-repeat;
+}
+
+.cabal {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -470px no-repeat;
+}
+
+.cencosud {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -500px no-repeat;
+}
+
+.credimas {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -530px no-repeat;
+}
+
+.carrefour {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -560px no-repeat;
+}
+
+.grupar {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -590px no-repeat;
+}
+
+.wishgift {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -610px no-repeat;
+}
+
+.unknown {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -640px no-repeat;
+}

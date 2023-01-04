@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FreezyShop</title>
+    <link rel="shortcut icon" type="image/ico" href="~/Logo3.ico">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/home.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+</head>
+
+<body >
+    <div id="preloader"></div>
+    <section id="header">
+    <a href="home.html"><img src="~/images/LogoOficial.png" style="width:10%" class="Logo" alt=""></a>
+
+    <div>
+        <ul id="navbar">
+            <li><a class="active" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><a asp-area="" asp-controller="Home" asp-action="Shop">Shop</a></li>
+            <li style="width: 145px;"><a asp-area="" asp-controller="Home" asp-action="About">Contact Us</a></li>
+
+                @if (this.User.Identity.IsAuthenticated)
+                {
+                    <li ><a asp-area="" asp-controller="Home" asp-action="Favourites"><i class="fas fa-star"></i></a></li>
+                    <li><a asp-area="" asp-controller="Cart" asp-action="Index"><i class="fas fa-shopping-bag"></i></a></li>
+                    <li><a href="#"><i class="fas fa-user">▾</i> </a>
+                    <ul class="dropdown">
+                        <li><a asp-area="" asp-controller="InfoClients" asp-action="Profile">Profile</a></li>
+                        <li><a asp-area="" asp-controller="Order" asp-action="Index">Orders</a></li>
+                        <li><a asp-area="" asp-controller="Return" asp-action="Index">Returns</a></li>
+                        <li><a asp-area="" asp-controller="Account" asp-action="ChangePassword">Password</a></li>
+                        <li><a asp-area="" asp-controller="Account" asp-action="Logout">Logout</a></li>
+                    </ul>
+                
+            </li>
+                    <li style="text-decoration: none;font-size: 16px;font-weight: 600;color: #222;transition: 0.3s ease;padding: 0 1px;" readonly>@this.User.Identity.Name</li>
+                }
+                else
+                {
+                    <li><a asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>
+                }
+            </ul>
+           
+    </div>
+    </section>
+    <div class="containera">
+        <main role="main" class="pb-3">
+
+            @RenderBody()
+        </main>
+    </div>
+
+@*    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - FreezyShop - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>*@
+        <footer class="footer">
+        <div class="container3">
+            <div class="row3">
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms and conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Get Help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Order status</a></li>
+                        <li><a href="#">Payment options</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Online Shop</h4>
+                    <ul>
+                        <li><a href="#">T-Shirts</a></li>
+                        <li><a href="#">Skirts</a></li>
+                        <li><a href="#">Jeans</a></li>
+                        <li><a href="#">Sweatshirt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+      <script>
+
+        var loader = document.getElementById("preloader");
+
+        window.addEventListener('load', function(load) {
+        window.removeEventListener('load', load, false);               
+        setTimeout(function(){loader.style.display = 'none'},200);
+        },false);
+
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

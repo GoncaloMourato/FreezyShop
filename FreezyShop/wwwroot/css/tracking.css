@@ -1,0 +1,116 @@
+﻿:root {
+    --body: #E3E6F3;
+    --cont: #fff;
+    --line: #bf85fa;
+    --txt: #222;
+    --light: #cb9afc3a;
+}
+
+
+
+body {
+    width: 100%;
+    min-height: 955px;
+    background: var(--body);
+    line-height: 1.4;
+}
+
+.containertracker {
+    width: 1000px;
+    max-width: 100%;
+    padding: 40px;
+    margin-top: 100px;
+    margin-left: 450px;
+    margin-bottom: 40px;
+    background: var(--cont);
+    position: relative;
+}
+
+.detailstracker {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.containertracker ul {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 80px;
+}
+
+    .containertracker ul li {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .containertracker ul li .icon {
+            font-size: 55px;
+            color: #bf85fa;
+            margin: 0 60px;
+        }
+
+        .containertracker ul li .text {
+            font-size: 20px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .containertracker ul li .progresstest .fas {
+            display: none;
+        }
+
+        .containertracker ul li .progresstest {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #eee;
+            margin: 14px 0;
+            display: grid;
+            place-items: center;
+            color: #333;
+            position: relative;
+            cursor: pointer;
+        }
+
+.containertracker .progresstest::after {
+    content: " ";
+    position: absolute;
+    width: 159px;
+    height: 5px;
+    background-color: #eee;
+    right: 30px;
+}
+
+.containertracker .one::after {
+    width: 0;
+    height: 0;
+}
+
+
+.containertracker ul li .progresstest p {
+    font-size: 16px;
+}
+
+.containertracker ul li .active {
+    background-color: #bf85fa;
+    display: grid;
+    place-items: center;
+}
+
+    .containertracker ul li .active::after {
+        background-color: #bf85fa;
+    }
+
+    .containertracker ul li .active p {
+        display: none;
+    }
+
+    .containertracker ul li .active .fas {
+        font-size: 17px;
+        display: flex;
+    }

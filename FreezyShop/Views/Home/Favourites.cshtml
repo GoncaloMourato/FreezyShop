@@ -1,0 +1,51 @@
+﻿@model FreezyShop.Models.FavouritesViewModel
+@{
+    ViewData["Title"] = "Favourite's Page";
+   
+}
+   
+   <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Loja Freezy</title>
+        <link rel="stylesheet" href="~/css/home.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    </head>
+    <body>
+         <section id="product2" class="section-p1" >
+        <h2>Favourite Products</h2>
+        <p>See here your favorite products!</p>
+              <div class="pro-container2" style="padding-left:0px;justify-content: space-evenly;">
+                @foreach(var item in @Model.Favourites)
+        {
+  
+            <div class="pro2"  >
+                <img src="@Url.Content(item.Product.ImageFullPath1)" onclick="window.location.href='@Url.ActionLink("Product","Home", new {id=item.ProductId})';" alt="">
+                <div class="des2">
+                    <span>freezy</span>
+                    <h5>@item.Product.Name</h5>
+                    <h4>@item.Product.Price €</h4>
+                </div>
+                
+                  <a class="cart2" ><input id="star1" class="star" type="checkbox" title="bookmark page" onclick="window.location.href='@Url.ActionLink("RemoveToFavourites4","Home", new {id= item.ProductId})';"checked ></a>
+                
+               
+            </div>
+        
+        }
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>

@@ -1,0 +1,116 @@
+﻿@model FreezyShop.Models.ProductShopViewModel
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Loja Freezy</title>
+        <link rel="stylesheet" href="~/css/home.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    </head>
+
+<body>
+       
+        <section id="prodetails" class="section-p1">
+        <div class="single-pro-image">
+            <img src="@Url.Content(@Model.Product.ImageFullPath1)" style="width : 100%" id="MainImg" alt="">
+
+            <div class="small-img-group">
+                <div class="small-img-col">
+                    <img src="@Url.Content(@Model.Product.ImageFullPath1)" style="width : 100%"  class="small-img" alt=""/>
+                </div>
+                <div class="small-img-col">
+                    <img src="@Url.Content(@Model.Product.ImageFullPath2)" style="width : 100%"  class="small-img" alt=""/>
+                </div>
+                <div class="small-img-col">
+                </div>
+                <div class="small-img-col">
+                </div>
+            </div>
+        </div>
+       
+       
+        <div class="single-pro-details">
+            <h6>Home/@Model.Product.Name</h6>
+            <h4>@Model.Product.Name</h4>
+            <h2>@Model.Product.Price €</h2>
+         
+             <form asp-controller="Cart" asp-action="AddToCart">
+          
+            <select asp-for="Size"  style="width: 150px;" required>
+                <option  disabled>Select Size</option>
+                    @foreach(var item in @Model.SizesOfProducts)
+                    {
+                        <option value="@item" >@item</option>
+                    }
+                </select>
+              
+               <input type="hidden" value = "@Model.Product.Id" asp-for="Id">
+                @if(@Model.Product.Quantity == 0)
+                {
+                    <input type="submit" value="Add To Cart" style="width: 263px;" class="normal" disabled>
+                   @if(@Model.Product.InFavourite == true){
+                     <a  ><input id="star1" class="star" type="checkbox" title="bookmark page" onclick="window.location.href='@Url.ActionLink("RemoveToFavourites","Home", new {@Model.Product.Id})';" style="font-size: 60px;"checked ></a>
+                    }else{
+                    <a   asp-route-id="@Model.Product.Id" id="stars"><input  class="star" type="checkbox" style="font-size: 60px;">  @*onclick="window.location.href='@Url.ActionLink("AddToFavourites","Home", new {@Model.Products[i].Id})' >*@</a>
+                        }
+                }
+                else {
+                     <input type="submit" value="Add To Cart" style="width: 263px;" class="normal" >
+                      @if(@Model.Product.InFavourite == true){
+                            <a  ><input id="star1" class="star" type="checkbox" title="bookmark page" onclick="window.location.href='@Url.ActionLink("RemoveToFavourites","Home", new {@Model.Product.Id})';" style="font-size: 60px;" checked ></a>
+                         }else{
+                            <a asp-route-id="@Model.Product.Id" id="stars"><input  class="star" type="checkbox" style="font-size: 60px;">  @*onclick="window.location.href='@Url.ActionLink("AddToFavourites","Home", new {@Model.Products[i].Id})' >*@</a>
+                        }   
+                }
+
+          </form>
+           
+              <h4 style="padding: 14px 0 3px 0;">Color: </h4><span>@Model.Product.Color</span>
+           
+            <h4 style="padding: 14px 0 3px 0;">Gender: </h4> <span>@Model.Product.Gender </span>
+           
+             <h4 style="padding: 14px 0 3px 0;">In Stock: </h4><span> @Model.Product.Quantity</span>
+            
+             <h4 style="padding: 14px 0 3px 0;">Description</h4>
+            <span>
+               @Model.Product.Description
+            </span>
+        </div>
+       
+    </section>
+
+    <section id="product2" class="section-p1">
+        <h2>you also would like</h2>
+        <p>Choose what you need to be comfortable</p>
+        <div class="pro-container2">
+            @foreach(var item in @Model.RelatedProducts)
+            {
+                 <div class="pro2">
+                <img src="@Url.Content(@item.Product.ImageFullPath1)"  onclick="window.location.href='@Url.ActionLink("Product","Home", new {@item.Product.Id})';" alt="">
+                <div class="des2">
+                    <span>freezy</span>
+                    <h5>@item.Product.Name</h5>
+                    <h4>@item.Product.Price €</h4>
+                </div>
+                
+            </div> 
+            }
+          
+        </div>
+    </section>
+
+      <script>
+        var MainImg = document.getElementById("MainImg");
+        var smallimg = document.getElementsByClassName("small-img");
+
+        smallimg[0].onclick =function(){
+            MainImg.src = smallimg[0].src;
+        }
+        smallimg[1].onclick =function(){
+            MainImg.src = smallimg[1].src;
+        }
+    </script>
+
+       
+</body>

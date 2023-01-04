@@ -1,0 +1,151 @@
+﻿@model FreezyShop.Models.SizeViewModel
+
+@{
+    ViewData["Title"] = "Size";
+}
+@*
+<h1>Create</h1>
+
+<h4>Category</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="SizeUser">
+               <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @if(Model.Genderuser == "Female")
+            {
+                     <div class="form-group">
+                <label asp-for="BreastWoman" class="control-label">BreastWoman</label>
+                <input asp-for="BreastWoman" class="form-control" />
+                <span asp-validation-for="BreastWoman" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WaistWoman" class="control-label">WaistWoman</label>
+                <input asp-for="WaistWoman" class="form-control" />
+                <span asp-validation-for="WaistWoman" class="text-danger"></span>
+            </div>
+                   <div class="form-group">
+                <label asp-for="Hip" class="control-label">WaistWoman</label>
+                <input asp-for="Hip" class="form-control" />
+                <span asp-validation-for="Hip" class="text-danger"></span>
+                </div>
+            }else
+            {
+                                   <div class="form-group">
+                <label asp-for="BreastMan" class="control-label">BreastMan</label>
+                <input asp-for="BreastMan" class="form-control" />
+                <span asp-validation-for="BreastMan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WaistMan" class="control-label">WaistMan</label>
+                <input asp-for="WaistMan" class="form-control" />
+                <span asp-validation-for="WaistMan" class="text-danger"></span>
+            </div>
+            }
+            @if(@Model.ResultSize != null)
+            {
+                 <h2>O seu tamanho é: @Model.ResultSize</h2>
+            }
+           
+       
+            <div class="form-group">
+                <input type="submit" value="Add Size" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@
+
+   <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sizes</title>
+        <link rel="stylesheet" href="~/css/sizes.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    </head>
+
+<body>
+
+    <div class="container6">
+        <h1>Sizes</h1>
+
+    <div class="sizes">
+        <div class="answer">
+            <h3>Women</h3>
+       <div class="overlay">
+            <form id="form2">
+                <img src="~/images/sizewomen.png" alt="">
+            </form>
+        </div>
+        </div>
+
+        <div class="sizewm">
+            <h3>Size</h3>
+             <form asp-action="SizeUser">
+                <div class="input-row" style="padding-left: 55px;">
+                        @if (Model.Genderuser == "Female")
+                        {
+                            <div class="input-group">
+                                <label for="BreastWoman">Bust:</label>
+                                <input type="text" asp-for="BreastWoman" style="margin-top: 30px; width: 40px;position: absolute;" placeholder="65cm" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="WaistWoman">Waist:</label>
+                                <input type="text"  asp-for="WaistWoman" style="margin-top: 30px; width: 50px;position: absolute;" placeholder="69cm" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="Hip">Hip:</label>
+                                <input type="text" asp-for="Hip" style="margin-top: 30px; width: 40px;position: absolute;" placeholder="34cm" required>
+                            </div>
+                        }
+                        else
+                        {
+                              <div class="input-group" style="margin-left: 50px;">
+                                <label for="BreastMan">Bust:</label>
+                                <input type="text" asp-for="BreastMan" style="margin-top: 30px; width: 40px;position: absolute;" placeholder="65cm" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="WaistMan">Waist:</label>
+                                <input type="text"  asp-for="BreastMan"  style="margin-top: 30px; width: 40px;position: absolute;" placeholder="69cm" required>
+                            </div>
+                        }
+                    </div>
+
+                <div class="center">
+                    <input type="submit" style="margin-top:50px" value="Save">
+                    
+                </div>
+
+                <div class="center">
+                    <a id = "nowletsgo"asp-action="Profile">Back</a>
+                </div>
+
+                <div class="input-group2" style="margin-left: 120px; width: 90%;">
+                    <label for="sizexl" style="margin-top: 140px; width: 100%;margin-left: 35px;">Your Size is:</label>
+                    <input type="text" style="align-items: center;text-align: center;" placeholder="Your perfect size is M" asp-for="ResultSize" readonly>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="answer">
+            <h3>Men</h3>
+                <div class="overlay">
+            <form id="form3">
+                <img src="~/images/sizemen.png" alt="">
+            </form>
+                </div>
+        </div>
+
+    </div>
+</div>
+
+</body>

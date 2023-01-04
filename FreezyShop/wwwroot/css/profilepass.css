@@ -1,0 +1,65 @@
+﻿/*
+
+    Change password
+*/
+#bodyprofile {
+    margin: 0;
+    padding: 0;
+    background: #E3E6F3;
+    font-family: 'Popins',Sans-Serif;
+}
+
+.wrapperprofile {
+    margin-top: 5%;
+    left: 40%;
+    align-items: center;
+    width: 30%;
+    margin-left: 35%;
+    text-align: center;
+    padding: 25px;
+    border-radius: 0.8rem;
+    background: #fff;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+    .wrapperprofile img {
+        width: 130px;
+    }
+
+    .wrapperprofile h1 {
+        font-size: 30px;
+    }
+
+    .wrapperprofile h3 {
+        font-size: 15px;
+        font-weight: 400;
+    }
+
+    .wrapperprofile .field {
+        height: 60px;
+    }
+
+    .wrapperprofile input[ type = password ] {
+        width: 250px;
+        height: 30px;
+        outline: none;
+        border: 1px solid #eee;
+        border-radius: 0.3rem;
+        
+    }
+
+    .wrapperprofile span {
+        position: absolute;
+        color: black;
+        padding: 4px;
+    }
+
+    .wrapperprofile input[ type = submit ] {
+        width: 290px;
+        height: 50px;
+        border: none;
+        border-radius: 0.3rem;
+        color: white;
+        background-color: #bf85fa;
+        cursor: pointer;
+    }

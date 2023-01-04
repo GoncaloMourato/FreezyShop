@@ -1,0 +1,60 @@
+﻿.board2 {
+    width: 96.5%;
+    margin: 30px 0 30px 30px;
+    overflow: auto;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+    .board2 img {
+        width: 45px;
+        height: 45px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+
+    .board2 h5 {
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    .board2 p {
+        font-weight: 400;
+        font-size: 13px;
+        color: #787d8d;
+    }
+
+    .board2 .people {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: start;
+    }
+
+table {
+    border-collapse: collapse;
+}
+
+tr {
+    border-bottom: 1px solid #787d8d;
+}
+
+thead td {
+    font-size: 14px;
+    font-weight: 400;
+    background-color: #d7dbe6;
+    text-align: start;
+    padding: 15px;
+}
+
+tbody tr td {
+    padding: 10px 15px;
+}
+
+.edit a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #222;
+    font-weight: 600;
+}

@@ -1,0 +1,115 @@
+﻿   @model FreezyShop.Models.DashAdminViewModel
+   @addTagHelper *, Vereyon.Web.FlashMessage
+@{
+    Layout = null;
+}
+ <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link rel="stylesheet" href="~/css/Dashboard.css">
+         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    </head>
+    <partial name="_Dashboard" />
+
+
+    <body>
+    
+        <section style="    position: absolute;
+    margin-left: 316px;
+    width: 80%;">
+         
+
+            <h3 class="i-name">
+                Dashboard
+            </h3>
+            <div class="inputBox">
+
+                <a asp-action="CreateEmployee"><input type="submit" value="Add Users" class="submit-btn" required></a>
+            </div>
+
+            <div class="values">
+                <div class="val-box">
+                    <i class="fas fa-users"></i>
+                    <div>
+                        <h3>@Model.AllUsers</h3>
+                        <span>Users</span>
+                    </div>
+                </div>
+                <div class="val-box">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div>
+                        <h3>@Model.AllOrders</h3>
+                        <span>Orders</span>
+                    </div>
+                </div>
+                <div class="val-box">
+                    <i class="fas fa-tshirt"></i>
+                    <div>
+                        <h3>@Model.AllProducts</h3>
+                        <span>Products</span>
+                    </div>
+                </div>
+                <div class="val-box">
+                    <img src="@Url.Content(@Model.ProductMoreSold.ImageFullPath1)" alt="">
+                    <div>
+                        <h3>Most Selled</h3>
+                        <span>@Model.ProductMoreSold.Name</span>
+                    </div>
+                </div>
+                <div class="val-box">
+                    <img src="@Url.Content(@Model.ProductMoreAcessed.ImageFullPath1)" alt="">
+                    <div>
+                        <h3>Most Popular</h3>
+                        <span>@Model.ProductMoreAcessed.Name</span>
+                    </div>
+                </div>
+            </div>
+
+            <dir class="board">
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Status</td>
+                            <td>Role</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                      <tbody>
+                @foreach(var item in Model.Users)
+                {
+                     <tr>
+                            <td class="people-de">
+                                 
+                                        <h5>@item.FullName</h5>
+                                        <p>@item.Email</p>
+                                                           
+                            </td>
+                           
+
+                            <td class="active">
+                                <p>Active</p>
+                            </td>
+                            
+                            <td class="role">
+                                <p>@item.Role</p>
+                            </td>
+
+                            <td class="edit"><a asp-action="Delete" asp-route-id="@item.UserId"><i class="fas fa-trash"></i></a></td>
+                        </tr>
+                }
+              
+                       
+                    </tbody>
+                </table>
+            </dir>
+        </section>
+
+
+    </body>
+    @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

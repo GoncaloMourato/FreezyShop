@@ -1,0 +1,119 @@
+﻿@model FreezyShop.Models.CategoryViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+}
+
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Categories</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link rel="stylesheet" href="~/css/dashcategories.css">
+    </head>
+
+    <body>
+    <partial name="_Dashboard" />
+        <section style="position: absolute;
+    margin-left: 316px;
+    width: 80%;" >
+           
+
+            <h3 class="i-name">
+                Categories
+            </h3>
+            
+           
+            <div class="values">
+                  <form asp-action="Create" method="post">
+                <div class="inputBox">
+                    <span>Categories :</span>
+                   
+                    <input type="text" asp-for="Name" style="width: 100%;"placeholder="category name">
+                </div>
+
+                <input type="submit" value="Add Category" style="    width: 163px; height: 56px;" class="submit-btn">
+                  </form>
+                <div class="inputBox">
+                </div>
+                <div class="inputBox">
+                </div>
+                <div class="inputBox">
+                </div>
+                <div class="inputBox">
+                </div>
+                <div class="inputBox">
+                </div>
+                <div class="inputBox">
+                </div>
+                <div class="inputBox">
+                </div>
+                <div class="inputBox">
+                </div>
+                <div class="inputBox">
+                </div>
+                <div class="inputBox">
+                </div>
+                <div class="inputBox">
+                </div>
+                <div class="inputBox">
+                </div>
+                <div class="inputBox">
+                </div>
+                <div class="inputBox">
+                </div>
+                <div class="inputBox">
+                </div>
+                <div class="inputBox">
+                </div>
+                <div class="inputBox">
+                </div>
+                <div class="inputBox">
+                </div>
+                <div class="inputBox">
+                </div>
+                <div class="inputBox">
+                </div>
+                <div class="inputBox">
+                </div>
+                <div class="inputBox">
+                </div>
+                
+            </div>
+
+            <dir class="board">
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <td>Number</td>
+                            <td>Category</td>
+                            <td>Remove Category</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Categories) {
+
+                        <tr>
+                            <td class="categories">
+                                @Html.DisplayFor(modelItem => item.Id)
+                            </td>
+                            <td class="categories">
+                                <div class="product-de">
+                                    <h5>@Html.DisplayFor(modelItem => item.Name)</h5>
+                                </div>
+                            </td>
+                            
+                            <td class="edit" style="padding-left:70px;"><a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash"></i></a></td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </dir>
+
+
+        </section>
+    </body>

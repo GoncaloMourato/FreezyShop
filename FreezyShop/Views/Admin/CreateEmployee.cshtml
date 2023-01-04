@@ -1,0 +1,134 @@
+﻿@model  FreezyShop.Models.CreateEmployeeViewModel
+
+@{
+    ViewData["Title"] = "Create Employee";
+    Layout = null;
+}
+
+@*<h2>Register</h2>
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly"></div>
+         
+            <div class="form-group">
+                <label asp-for="FirstName">First Name</label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-warning"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="LastName">Last Name</label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-warning"></span>
+            </div>
+                  <div class="form-group">
+                <label asp-for="Email">Email</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-warning"></span>
+            </div>
+
+            
+            <div class="form-group">
+                <label asp-for="NickName">UserName</label>
+                <input asp-for="NickName" class="form-control" />
+                <span asp-validation-for="NickName" class="text-warning"></span>
+            </div>
+
+            
+            <div class="form-group">
+                <label asp-for="Password">Password</label>
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-warning"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="ConfirmPassword">Confirm</label>
+                <input asp-for="ConfirmPassword" type="password" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-warning"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+          </form>
+        </div>
+       </div>
+      
+       <div class="text-success">
+           <p>
+               @ViewBag.Message
+           </p>
+       </div>
+*@
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link rel="stylesheet" href="~/css/AddStaff.css">
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/css/multi-select-tag.css">
+    </head>
+     
+   <body>
+        <h3 style="margin-left: 300px; position:absolute; margin-top: 75px;" >Add Staff</h3>
+    <partial name="_Dashboard" />
+    <form method="post">
+      <section id="categoriasss" style="margin-top: 150px;margin-left: 300px;width: 6000px;">
+    
+        <div class="select">
+            <select asp-for="Role" id="format" required>
+                <option selected disabled>Choose Role</option>
+                <option value="Admin">Admin</option>
+                <option value="Employee">Employee</option>
+            </select>
+        </div>
+
+         <div class="containeremployee">
+
+           
+        
+                <div class="row">
+        
+                    <div class="col">
+
+                            <div class="inputBox" >
+                                <span>First Name :</span>
+                                <input asp-for="FirstName"type="text" placeholder="First name of the staff" style="display:flex" required>
+                            </div>
+        
+                                <div class="inputBox">
+                                <span>Last Name :</span>
+                                <input asp-for="LastName" type="text" placeholder="Last name of the staff" style="display:flex" required>
+                            </div>
+                            <div class="inputBox">
+                                <span>Email :</span>
+                                <input asp-for="Email" type="email" placeholder="example@gmail.com" style="display:flex" required>
+                            </div>
+                              <div class="inputBox">
+                                <span>UserName :</span>
+                                <input asp-for="NickName" type="text" placeholder="Staff0202" style="display:flex"required>
+                            </div>
+                              <div class="inputBox">
+                                <span>Password :</span>
+                                <input asp-for="Password" type="password" placeholder="Password" style="display:flex" required>
+                            </div>
+                            <div class="inputBox">
+                                <span>Confirm Password :</span>
+                                <input asp-for="ConfirmPassword" type="password" placeholder="Confirm Password" style="display:flex" required>
+                            </div>
+                  </div>
+              </div>
+                <input type="submit" value="Add Staff" class="submit-btn">
+
+        </div>
+      </section>
+ </form>
+     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+     
+   </body>

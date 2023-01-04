@@ -1,0 +1,40 @@
+﻿@model FreezyShop.Models.ResetPasswordViewModel
+
+@{
+    ViewData["Title"] = "Reset Password";
+    Layout = null;
+}
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Not Authorized</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link rel="stylesheet" href="~/css/401.css">
+    </head>
+
+<body>
+
+    <div id="container401">
+        <div class="content401">
+            <h2>Not Authorized</h2>
+            <h4>You are not authorized to access this page</h4>
+            <p>Your request has not been completed because it lacks valid authentication credentials for the requested resource.</p>
+            <a asp-controller="Home" asp-action="Index">Back to Home</a>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        var container404 = document.getElementById('container401');
+        window.onmousemove = function(e){
+            var x = - e.clientX / 15,
+                y = - e.clientY / 15;
+                container404.style.backgroundPositionX = x + 'px';
+                container404.style.backgroundPositionY = y + 'px';
+        }
+
+    </script>
+
+</body>

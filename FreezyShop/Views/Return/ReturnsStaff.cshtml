@@ -1,0 +1,135 @@
+﻿@model IEnumerable<FreezyShop.Data.Entities.Return>
+@{
+    Layout = null;
+}
+@*@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.User.Email)
+            </th>
+              <th>
+                @Html.DisplayNameFor(model => model.OrderDetail.Product)
+            </th>
+             <th>
+                Photo - Damage
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+        
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+       
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                @Html.DisplayFor(modelItem => item.User.Email)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderDetail.Product.Name)
+                <img src="@Url.Content(@item.OrderDetail.Product.ImageFullPath1)" alt="Image" class="rounded-circle" style="width: 70px; height:70px;  max-height: 100%; width: auto;"> 
+            </td>
+             <td>
+                <img src="@Url.Content(@item.ImageFullPath1)" alt="Image" class="rounded-circle" style="width: 70px; height:70px;  max-height: 100%; width: auto;"> 
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reason)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+        
+            <td>
+                <a asp-action="ManageReturn" asp-route-id="@item.Id">Manage Return</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@
+
+
+  <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Returns</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link rel="stylesheet" href="~/css/ReturnStaff.css">
+    </head>
+
+    <body>
+          <partial name="_Dashboard" />
+                    <section style="position: absolute;
+    margin-left: 316px;
+    width: 80%;">
+         
+    
+                <h3 class="i-name">
+                    Returns
+                </h3>
+              
+    
+                <dir class="board">
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <td>Name Product</td>
+                                <td>User</td>
+                                <td>Reason</td>
+                                <td>Status</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var item in Model) {
+                            <tr>
+                                <td class="people">
+                                    <img src="@Url.Content(@item.OrderDetail.Product.ImageFullPath1)" alt="">
+                                        <div class="people-de">
+                                            <h5>@Html.DisplayFor(modelItem => item.OrderDetail.Product.Name)</h5>
+                                           
+                                        </div>                                
+                                </td>
+
+                                <td class="people-des">
+                                    <h4> @Html.DisplayFor(modelItem => item.User.Email)</h4>
+                                </td>
+
+                                <td class="people-des">
+                                    <h4>@Html.DisplayFor(modelItem => item.Reason)</h4>
+                                </td>
+
+                                 <td class="people-des">
+                                    <h4> @Html.DisplayFor(modelItem => item.Status)</h4>
+                                </td>
+
+                                <td class="edit"><a asp-action="ManageReturn" asp-route-id="@item.Id">View Request</a></td>
+                            </tr>
+                            }
+                           
+                        </tbody>
+                    </table>
+                </dir>
+            </section>
+    </body>

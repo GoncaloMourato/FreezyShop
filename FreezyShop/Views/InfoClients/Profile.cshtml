@@ -1,0 +1,211 @@
+﻿@model FreezyShop.Models.ProfileViewModel
+
+@{
+    ViewData["Title"] = "Edit Profile";
+}
+   <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Profile</title>
+        <link rel="stylesheet" href="~/css/Profile.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/css/multi-select-tag.css">
+    </head>
+
+<body>
+<form asp-action="Profile" enctype="multipart/form-data">
+	 <input type="hidden" asp-for="Id"/>
+     <input type="hidden" asp-for="UserId" />
+     <input type="hidden" asp-for="ImageUrl" />
+<div class="containerProfileNew">
+    <form method="post" enctype="multipart/form-data">
+        <div class="overlayProfile">
+           
+            <div id="formProfile" style="height: 800px;" enctype="multipart/form-data">
+
+				<label for="image">Image:</label>
+					<label class="picture" tabindex="0" style="height: 300px;"> 
+					<input type="file" asp-for="ImageFile" accept="image/*" id="photo" class="picture__input"  >
+					 <span class="picture__image" style="width: 60%;"></span>
+				</label>
+
+                <div id="FullNameProfile">
+                    <label for="message" style="width: 60%;">Full Name:</label>
+                    <input  asp-for="FullName" id="message" placeholder="Full Name"  required>
+                </div>
+
+                <div id="PhoneNumberProfile">
+                    <label for="message" style="width: 60%;">Phone Number:</label>
+                    <input asp-for="PhoneNumber" id="message" placeholder="919 999 999"   required>
+                </div>
+
+                <div class="select">
+                    <label for="reason">Gender</label>
+                    <select asp-for="GenderClient" id="format" required>
+                        <option selected disabled>Choose Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+
+				
+
+            </div>
+        </div>
+        
+        <div class="overlayProducts">
+            <div id="formProfile" style="height: 800px;">
+
+                <div id="ReceiptNameProfile">
+                    <label for="message" style="width: 40%;">Recepient Name :</label>
+                    <input id="message" asp-for="RecepientName" placeholder="Recipient Name"  required>
+                </div>
+
+                <div id="AddressProfile">
+                    <label for="message">Address:</label>
+                    <input id="message" asp-for="Address" placeholder="Adress" required>
+                </div>
+
+				<div class="flex">
+
+					<div class="select">
+						<label for="reason">Dustrict</label>
+						<select asp-for="District"  id="format" required>
+							<option value="Viana do Castelo">Viana do Castelo</option>
+							<option value="Braga">Braga</option>
+							<option value="Vila Real">Vila Real</option>
+							<option value="Bragança">Bragança</option>
+							<option value="Porto">Porto</option>
+							<option value="Aveiro">Aveiro</option>
+							<option value="Viseu">Viseu</option>
+							<option value="Guarda">Guarda</option>
+							<option value="Coimbra">Coimbra</option>
+							<option value="Castelo Branca">Castelo Branco</option>
+							<option value="Leiria">Leiria</option>
+							<option value="Lisboa">Lisboa</option>
+							<option value="Santarém">Santarém</option>
+							<option value="Portalegre">Portalegre</option>
+							<option value="Setúbal">Setúbal</option>
+							<option value="Évora">Évora</option>
+							<option value="Beja">Beja</option>
+							<option value="Faro">Faro</option>
+						</select>
+					</div>
+
+                <div id="ZipCodeProfile">
+                    <label for="message" style="width: 40%;">Zip Code :</label>
+                    <input id="message" asp-for="PostalCode"  placeholder="2500-212" data-mask="9999-999" style="height: 40px;" required>
+                </div>
+
+				</div>
+
+                <div id="NameOnCard">
+                    <label for="message" style="width: 40%;">Name On Card :</label>
+                    <input id="message" asp-for="NameOnCard" placeholder="Name on Card" required>
+                </div>
+
+                <div id="CardNumberProfile">
+                    <label for="message" style="width: 40%;">Card Number :</label>
+                   
+                     <input id="card"  asp-for="CardNumber"   placeholder="Card Number" data-mask="9999 9999 9999 9999" required>
+                   <div id="logo" style=" position: absolute;margin-right: 649px;margin-top: 682px;"></div>
+                </div>
+
+        
+			<div class="flex">
+				<div id="ExpireDateProfile">
+                    <label for="message" style="width: 60%;">Expire Date:</label>
+                    <input id="message" asp-for="ExperyDate" placeholder="02/23" required>
+                </div>
+
+                <div id="CvvProfile">
+                    <label for="message"style="width: 40%;">CVV:</label>
+                    <input id="message" asp-for="CVV" placeholder="123" data-mask="999" required>
+                </div>
+
+			</div>
+                <div class="center" style="padding-top: 80px;">
+                    <input type="submit" value="Save Settings">
+                     
+                </div>
+                 <a asp-action="SizeUser" style="color: #bf85fa;position: absolute;padding-left: 119px;padding-top: 55px;" >Calculate your Size</a>
+            </div>
+         
+        </div>
+   </form>
+		<div class="overlayProducts">
+            <form  asp-action="AddPreferences">
+            <div id="formProfile" style="height: 800px;">
+
+                
+            <div class="select">
+                    <label for="reason" style="width: 100%;">Tell us your preferences</label> @*Categorias*@
+                    <input type="hidden" asp-for="UserId" />
+                    <select asp-for="ClientPreferences" id="preference" multiple required>
+                              <option disabled>Choose Preferences</option>
+                           @foreach(var item in @Model.Preferences)
+                       {
+                        <option value="@item">@item</option>
+                        }
+                  s
+                       
+                    </select>
+                </div>
+			  <input type="submit" value="Save Preferences">
+              
+            </div>
+            </form>
+        </div>
+           
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script>
+<script>
+    new MultiSelectTag('preference')  // id
+</script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-masker/1.2.0/vanilla-masker.min.js"></script>
+<script >
+    const inputFile = document.querySelector('.picture__input');
+const pictureImage = document.querySelector('.picture__image');
+const pictureImageText = 'Choose Image';
+      pictureImage.innerHTML = pictureImageText;
+
+
+
+inputFile.addEventListener('change', function(e){
+    const inputTarget = e.target;
+    const file = inputTarget.files[0];
+
+    if(file){
+       const reader = new FileReader();
+
+        reader.addEventListener('load',function(e){
+            const readerTarget = e.target; 
+
+            const img = document.createElement('img');
+            img.src = readerTarget.result;
+            img.classList.add('picture__img');
+            pictureImage.innerHTML = '';
+
+            pictureImage.appendChild(img);
+        });
+
+       reader.readAsDataURL(file);
+    }
+    else{
+        pictureImage.innerHTML = pictureImageText;
+    }
+
+});
+
+</script>
+	
+
+
+</form>
+
+<script src="~/js/creditcard.js"></script>
+</body>

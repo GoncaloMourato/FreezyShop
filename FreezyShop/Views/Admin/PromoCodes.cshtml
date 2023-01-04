@@ -1,0 +1,119 @@
+﻿@model FreezyShop.Models.PromoCodesViewModel
+@{
+    Layout = null;
+}
+   <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Profile</title>
+        <link rel="stylesheet" href="~/css/PromoCodes.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    </head>
+    <form id="aaa"asp-action="AddPromoCode">   
+    <body>
+         <partial name="_Dashboard" />
+          
+                 <section style="position: absolute;
+    margin-left: 316px;
+    width: 80%;" >
+         
+ <h3 class="i-name">
+                Promo Codes
+            </h3>
+    
+            <div class="values">
+                           
+          
+                <div class="inputBox2">
+                    <span>Promo :</span>
+                    <input type="text" asp-for="Code" placeholder="Promo Code Name" required>
+                
+                </div>
+
+                <div class="inputBox2">
+                    <span>Percentage :</span>
+                    <input id="percentages" asp-for="Percentagem" type="number" min="1" max="100" required>%
+                
+                </div>
+            
+                <input type="submit" value="Add Promo" class="submit-btn2">
+                  
+                <div class="inputBox2">
+                </div>
+                <div class="inputBox2">
+                </div>
+                <div class="inputBox2">
+                </div>
+                <div class="inputBox2">
+                </div>
+                <div class="inputBox2">
+                </div>
+                <div class="inputBox2">
+                </div>
+                <div class="inputBox2">
+                </div>
+                <div class="inputBox2">
+                </div>
+                <div class="inputBox2">
+                </div>
+                <div class="inputBox2">
+                </div>
+                <div class="inputBox2">
+                </div>
+                <div class="inputBox2">
+                </div>
+                <div class="inputBox2">
+                </div>
+                <div class="inputBox2">
+                </div>
+                <div class="inputBox2">
+                </div>
+                <div class="inputBox2">
+                </div>
+                <div class="inputBox2">
+                </div>
+                <div class="inputBox2">
+                </div>
+                <div class="inputBox2">
+                </div>
+                <div class="inputBox2">
+                </div>
+                <div class="inputBox2">
+                </div>
+                <div class="inputBox2">
+                </div>
+                
+            </div>
+
+            <dir class="board">
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <td>Promo Code</td>
+                            <td>Discount % </td>
+                            <td>Remove Code</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                         @foreach (var item in Model.PromoCodes) {
+                        <tr>
+                            <td class="promocodes">
+                                <div class="promocode-de">
+                                    <h5>@Html.DisplayFor(modelItem => item.Code)</h5>
+                                </div>
+                            </td>
+                            <td class="role" style="padding-left: 35px;">
+                                <p><h5>@Html.DisplayFor(modelItem => item.Percentagem)%</h5></p>
+                            </td>
+                            <td class="edit" style="padding-left:60px;"><a asp-action="RemovePromoCode" asp-route-id="@item.Id"><i class="fas fa-trash"></i></a></td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </dir>
+</section>
+
+
+ </body>
+ </form>

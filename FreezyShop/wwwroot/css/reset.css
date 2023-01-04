@@ -1,0 +1,70 @@
+﻿#bodyreset {
+    margin: 0;
+    padding: 0;
+    background: #E3E6F3;
+    font-family: 'Popins',Sans-Serif;
+}
+
+.wrapperreset {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 25px;
+    border-radius: 0.8rem;
+    background: #fff;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+    .wrapperreset img {
+        width: 130px;
+    }
+
+    .wrapperreset h1 {
+        font-size: 30px;
+    }
+
+    .wrapperreset h3 {
+        font-size: 15px;
+        font-weight: 400;
+    }
+
+    .wrapperreset .field {
+        height: 60px;
+    }
+
+    .wrapperreset input[ type = password ] {
+        width: 250px;
+        height: 30px;
+        outline: none;
+        border: 1px solid #eee;
+        border-radius: 0.3rem;
+        padding-left: 6px;
+    }
+
+    .wrapperreset input[ type = email ] {
+        width: 250px;
+        height: 30px;
+        outline: none;
+        border: 1px solid #eee;
+        border-radius: 0.3rem;
+        padding-left: 6px;
+    }
+
+
+    .wrapperreset span {
+        position: absolute;
+        color: black;
+        padding: 4px;
+    }
+
+    .wrapperreset input[ type = submit ] {
+        width: 290px;
+        height: 35px;
+        border: none;
+        border-radius: 0.3rem;
+        color: white;
+        background-color: #bf85fa;
+        cursor: pointer;
+    }

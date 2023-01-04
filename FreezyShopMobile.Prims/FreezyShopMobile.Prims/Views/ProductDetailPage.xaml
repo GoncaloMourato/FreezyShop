@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:i18n="clr-namespace:FreezyShopMobile.Prims.Helpers"
+             xmlns:local="clr-namespace:FreezyShopMobile.Prims"
+             x:Class="FreezyShopMobile.Prims.Views.ProductDetailPage"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource ColorBackground}">
+  
+    
+    <ContentView>
+        <ScrollView>
+        
+        <StackLayout>
+            
+            <StackLayout Padding="10">
+                <Label Text="Frente"
+                        Scale="1.8"
+                        HorizontalTextAlignment="Center"
+                        FontAttributes="Bold"
+                        TextColor="Purple"/>
+
+
+                    <Grid Padding="10">
+                    <local:PinchToZoomContainer>
+                        <local:PinchToZoomContainer.Content>
+                            <Image Source="{Binding Product.ImageFullPath1}"
+                                   HeightRequest="400"
+                                   WidthRequest="400"/>
+                        </local:PinchToZoomContainer.Content>
+                    </local:PinchToZoomContainer>
+                </Grid>
+            
+                <Label Text="Costas"
+                        Scale="1.8"
+                        HorizontalTextAlignment="Center"
+                        FontAttributes="Bold"
+                        TextColor="Purple"/>
+
+                <Grid Padding="10">
+                    <local:PinchToZoomContainer>
+                        <local:PinchToZoomContainer.Content>
+                            <Image Source="{Binding Product.ImageFullPath2}"
+                                   HeightRequest="400"
+                                   WidthRequest="400"/>
+                        </local:PinchToZoomContainer.Content>
+                    </local:PinchToZoomContainer>
+                </Grid>
+            </StackLayout>
+
+
+
+
+                <StackLayout Padding="1">
+
+                    <Grid Padding="10,20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    FontAttributes="Bold"
+                    Text="{i18n:Translate Name}"/>
+                        <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="{Binding Product.Name}"/>
+                        <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    FontAttributes="Bold"
+                    Text="{i18n:Translate Price}"/>
+                        <Label
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Text="{Binding Product.Price, StringFormat='{0:C2}'}"/>
+                        <Label
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    FontAttributes="Bold"
+                    Text="{i18n:Translate Stock}"/>
+                        <Label
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    Text="{Binding Product.Quantity}"/>
+                        <Label
+                    Grid.Row="6"
+                    Grid.Column="0"
+                    FontAttributes="Bold"
+                    Text="{i18n:Translate Description}"/>
+                        <Label
+                    Grid.Row="7"
+                    Grid.Column="0"
+                    Text="{Binding Product.Description}"/>
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentView>
+
+</ContentPage>
+    

@@ -1,0 +1,88 @@
+﻿@model FreezyShop.Models.ReturnViewModel
+
+@{
+    ViewData["Title"] = "Returns";
+}
+
+   <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Return</title>
+        <link rel="stylesheet" href="~/css/home.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    </head>
+
+<body>
+       <section id="page-header">
+            <h2>Return</h2>
+            <p>Tell us what is wrong</p>
+        </section>
+
+        <div class="overlay">
+            <form  asp-action="Create" enctype="multipart/form-data" id="form5" method="post">
+                <input type="hidden" asp-for="OrderDetailId" />
+                <div class="select">
+                    <label for="reason">Reason</label>
+                    <select asp-for="Reason"  id="format">
+                        <option  selected disabled>Choose Reason</option>
+                        <option value="burn">Burn</option>
+                        <option value="holes">Clothes with holes</option>
+                        <option value="Color">Color</option>
+                        <option value="Size">Size</option>
+                        <option value="Refund">Refund</option>
+                    </select>
+                </div>
+
+                    <label for="message">Message:</label>
+                     <textarea asp-for="Description"  id="message"required style="resize:none;" rows="6"></textarea>
+
+                    <label for="image">Image:</label>
+                    <label class="picture" tabindex="0">
+                    <input  asp-for="ImageFile"  type="file" id="photo" class="picture__input">
+                    <span class="picture__image"></span>
+                    </label>
+
+                    
+                <div class="center">
+                    <input type="submit" value="Send Return">
+                </div>
+
+
+            </form>
+        </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script>
+        const inputFile = document.querySelector('.picture__input');
+const pictureImage = document.querySelector('.picture__image');
+const pictureImageText = 'Choose Image';
+pictureImage.innerHTML = pictureImageText;
+
+
+inputFile.addEventListener('change', function (e) {
+    const inputTarget = e.target;
+    const file = inputTarget.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+
+        reader.addEventListener('load', function (e) {
+            const readerTarget = e.target;
+
+            const img = document.createElement('img');
+            img.src = readerTarget.result;
+            img.classList.add('picture__img');
+            pictureImage.innerHTML = '';
+
+            pictureImage.appendChild(img);
+        });
+
+        reader.readAsDataURL(file);
+    }
+    else {
+        pictureImage.innerHTML = pictureImageText;
+    }
+
+});</script>
+</body>

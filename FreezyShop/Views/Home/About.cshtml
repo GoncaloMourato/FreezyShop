@@ -1,0 +1,50 @@
+﻿@model FreezyShop.Models.AboutViewModel
+@{
+    ViewData["Title"] = "Contact Us";
+}
+
+
+  <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact Us</title>
+        <link rel="stylesheet" href="css/home.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    </head>
+
+<body>
+
+     <section id="page-header" class="about-header">
+        <h2>Contact us</h2>
+        
+    </section>
+    <form asp-action="About">
+    <div class="overlay2" style="text-align: center;">
+            <label for="email" style="margin-left: 690px;">Email:</label>
+            <input type="email" asp-for="Email" id="name" placeholder="Your email"  style="padding-top: 10px;width: 20%;" required>
+
+            <div class="select" style="padding-top: 10px;width: 20%;margin-left: 690px;">
+                <label for="reason">Reason</label>
+                <select asp-for="Reason" id="format" required>
+                    <option selected disabled>Choose Reason</option>
+                    <option value="Products">Products</option>
+                    <option value="Shipping">Shipping</option>
+                    <option value="Account">Account</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div id="messageproducts">
+                <label for="message" style="padding-top: 10px;margin-left: 690px;">Description:</label>
+                <textarea id="message" placeholder=""  asp-for="Description"rows="6" style="width: 20%;" required></textarea>
+            </div>
+       
+        <div class="center">
+            <input type="submit" value="Send Message">
+        </div>
+
+
+    </div>
+    </form>
+</body>

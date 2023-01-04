@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Reset Password";
+    Layout = null;
+}
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>404 Page Error</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link rel="stylesheet" href="~/css/404.css">
+    </head>
+
+<body>
+
+    <div id="container404">
+        <div class="content404">
+            <h2>Error 404</h2>
+            <h4>Opps! Page not found :c</h4>
+            <p>The page you were looking for doesn't exist you may have mistyped the address or the page may have been removed.</p>
+            <a asp-controller="Home" asp-action="Index">Back to Home</a>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        var container404 = document.getElementById('container404');
+        window.onmousemove = function(e){
+            var x = - e.clientX / 15,
+                y = - e.clientY / 15;
+                container404.style.backgroundPositionX = x + 'px';
+                container404.style.backgroundPositionY = y + 'px';
+        }
+
+    </script>
+
+</body>
+
+

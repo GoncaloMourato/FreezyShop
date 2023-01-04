@@ -1,0 +1,148 @@
+﻿@model FreezyShop.Models.IndexViewModel
+@{
+    ViewData["Title"] = "Home Page";
+   
+}
+   
+   <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Loja Freezy</title>
+        <link rel="stylesheet" href="~/css/home.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+
+    </head>
+  
+<body >
+ 
+   
+   <section id="frontcover" style="
+    max-width: 100%;
+">
+        <h4>Freezy</h4>
+        <h2>Feel Comfortable</h2>
+        <h1>On all products</h1>
+        <p>Save more with coupons up to 70% off!</p>
+        <button ><a asp-action="Shop">Shop Now</a></button>
+    </section>
+
+    <section id="feature" class="section-p1">
+        <div class="fe-box">
+            <img src="~/images/f1.png" alt="">
+            <h6>Free Shipping</h6>
+        </div>
+        <div class="fe-box">
+            <img src="~/images/f2.png" alt="">
+            <h6>Online Order</h6>
+        </div>
+        <div class="fe-box">
+            <img src="~/images/f3.png" alt="">
+            <h6>Great Coupons</h6>
+        </div>
+        <div class="fe-box">
+            <img src="~/images/f4.png" alt="">
+            <h6>Sales</h6>
+        </div>
+        <div class="fe-box">
+            <img src="~/images/f6.png" alt="">
+            <h6>Support</h6>
+        </div>
+    </section>
+
+    <section id="product1" class="section-p1">
+        <h2>Categories</h2>
+        <p>Choose what you need to be fabulous</p>
+          <div class="pro-container">
+        @for(int i = 0;i <= 7; i++)
+        {
+      
+            <div class="pro" >
+                <img src="@Url.Content(@Model.Categories[i].Product.ImageFullPath1)"  onclick="window.location.href='@Url.ActionLink("Shop","Home", new { Category = @Model.Categories[i].Category.Name})';"alt="">
+                <div class="des">
+                    <h5>@Url.Content(@Model.Categories[i].Category.Name)</h5>
+                </div>
+           
+            </div>
+       
+        }
+         </div>
+    </section>
+
+    <section id="banner" class="section-m1">
+        <h4>Contact Service</h4>
+        <h2>If you need some help - <span>Open a ticket</span></h2>
+        <button onclick="window.location.href='@Url.ActionLink("About","Home")';" class="normal">Explore More</button>
+    </section>
+   
+    <section id="product2" class="section-p1" >
+        <h2>New Products</h2>
+        <p>Choose what you need to be comfortable</p>
+              <div class="pro-container2" style="padding-left:0px">
+                @for(int i = 0;i <= 7; i++)
+        {
+  
+            <div class="pro2"  >
+                <img src="@Url.Content(@Model.Products[i].ImageFullPath1)" onclick="window.location.href='@Url.ActionLink("Product","Home", new {@Model.Products[i].Id})';" alt="">
+                <div class="des2">
+                    <span>freezy</span>
+                    <h5>@Model.Products[i].Name</h5>
+                    <h4>@Model.Products[i].Price €</h4>
+                </div>
+                @if(@Model.Products[i].InFavourite == true){
+                  <a class="cart2" ><input id="star1" class="star" type="checkbox" title="bookmark page" onclick="window.location.href='@Url.ActionLink("RemoveToFavourites","Home", new {@Model.Products[i].Id})';"checked ></a>
+                }else{
+                  
+                    <a class="cart2"  id="btn" value="@Model.Products[i].Id" ><input id="star1" class="star" type="checkbox" title="bookmark page" onclick="window.location.href='@Url.ActionLink("RemoveToFavourites","Home", new {@Model.Products[i].Id})';" ></a>
+                }
+               
+            </div>
+           
+        }
+        </div>
+
+    </section>
+  @*  <div id="deleteDialog" class="modal fade">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="fa fa-window-close"></i></button>
+                <h4 class="modal-title">Delete</h4>
+            </div>
+            <div class="modal-body">
+                <p>Do you want to delete the country?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btnYesDelete">Delete</button>
+                <button type="button" class="btn btn-success" id="btnNoDelete">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+     
+
+    @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var id = 0;
+            $('a[id*=btn]').click(function () {
+                debugger;
+               
+                id =document.getElementsByClassName("cart2").id;
+                $("#deleteDialog").modal('show');
+                return false;
+            });
+            $("#btnNoDelete").click(function () {
+                $("#deleteDialog").modal('hide');
+                return false;
+            });
+            $("#btnYesDelete").click(function () {
+
+                window.location.href = '/Countries/Delete/' + id;
+            });
+        });
+    </script>
+}*@
+    </body>

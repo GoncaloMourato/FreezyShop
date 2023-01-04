@@ -1,0 +1,109 @@
+﻿@model IEnumerable<FreezyShop.Models.ProductViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+}
+
+@*<h1>Stock</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+     
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                Current Stock
+            </th>
+           <th>
+                Add Stock
+            </th>
+    
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                <img src="@Url.Content(@item.Imageurl1)" alt="Image" class="rounded-circle" style="width: 70px; height:70px;  max-height: 100%; width: auto;" />
+            </td>
+            <td>
+                 <img src="@Url.Content(@item.Imageurl2)" alt="Image" class="rounded-circle" style="width: 70px; height:70px;  max-height: 100%; width: auto;" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+           
+            <td>
+                 <a class="btn btn-primary btn-sm" asp-action="DecreaseStock" asp-route-id="@item.Id">-</a>
+                  @Html.DisplayFor(modelItem => item.Quantity)
+                 <a class="btn btn-primary btn-sm" asp-action="AddStock" asp-route-id="@item.Id">+</a> 
+               
+            </td>
+
+        
+       
+        </tr>
+}
+    </tbody>
+</table>*@
+
+
+
+   <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Stock</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link rel="stylesheet" href="~/css/Stock.css">
+    </head>
+
+    <body>
+    <partial name="_Dashboard" />
+        <section style="position: absolute;
+    margin-left: 316px;
+    width: 80%;">
+          
+
+            <h3 class="i-name">
+                Stock
+            </h3>
+
+            <dir class="board">
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <td>Product</td>
+                            <td style="padding-left: 60px;">Product Stock</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model) {
+                        <tr>
+                            <td class="products">
+                                <img src="@Url.Content(@item.Imageurl1)" alt="">
+                                <div class="product-de">
+                                    <h5>  @Html.DisplayFor(modelItem => item.Name)</h5>
+                                  
+                                </div>
+                            </td>
+                            <td>
+                                <a class="normal"  asp-action="DecreaseStock" asp-route-id="@item.Id">-</a>
+                                <input type="text" value="@Html.DisplayFor(modelitem=> item.Quantity)" readonly="readonly" style="width: 40px;text-align: center;outline: none;">
+                                <a class="normal"  asp-action="AddStock" asp-route-id="@item.Id">+</a>
+                                </td>
+                            <td class="edit" style="padding-right: 60px;"><a asp-action="DeleteStock" asp-route-id="@item.Id">Remove</a></td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </dir>
+
+
+        </section>
+    </body>

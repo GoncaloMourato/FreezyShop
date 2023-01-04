@@ -1,0 +1,149 @@
+﻿@model FreezyShop.Models.CartViewModel
+@{
+    ViewData["Title"] = "Cart";
+}
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cart</title>
+        <link rel="stylesheet" href="~/css/home.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    </head>
+
+<body>
+        <section id="page-header" class="about-header">
+        <h2>Cart</h2>
+        <p></p>
+    </section>
+
+      @ViewBag.Message
+    <section id="cart" class="section-p1">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <td>Remove</td>
+                    <td>Image</td>
+                    <td>Product</td>
+                    <td>Size</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>Subtotal</td>
+                </tr>
+            </thead>
+            <tbody>
+                 @foreach (var item in Model.CartItems) {
+                <tr>
+                    <td><a asp-action="RemoveFromCart" asp-route-id="@item.Product.Id" style="color:#bf85fa "><i class="fas fa-times"></i></a></td>
+                    <td><img src="@Url.Content(item.ImageUrl1)" alt=""></td>
+                    <td> @Html.DisplayFor(modelItem => item.Product.Name)</td>
+                    <td> @Html.DisplayFor(modelItem => item.Size)</td>
+                       
+                    <td>@Html.DisplayFor(modelItem => item.Price)€</td>
+                   
+                    <td>
+                        <a class="normal"  asp-action="Decrease" asp-route-id="@item.ProductId" style="padding:0px 0px">-</a>
+                        <input type="text" value="@Html.DisplayFor(modelItem => item.Quantity)" readonly="readonly" style="outline: none;text-align: center;    width: 30px;">
+                        <a class="normal"  asp-action="AddToCart" asp-route-id="@item.ProductId"style="padding:0px 0px">+</a>
+                    </td>
+                    <td>@item.TotalPrice €</td>
+                    
+                </tr>
+                }
+                
+            </tbody>
+        </table>
+    </section>
+
+    <section id="cart-add" class="section-p1">
+              <div class="containercoupon">
+            <div class="cardcoupon">
+              <div class="maincoupon">
+                <div class="co-img">
+                  <img
+                    src="~/images/LogoOficial.png"
+                    style="width: 90px;
+    height: 80px;
+    margin-left: 16px;"
+                  />
+                </div>
+              
+                <div class="vertical"></div>
+                <div class="contentcoupon">
+                  <h1>Freezy <span>Coupon</span></h1>
+                  <p>Valid till december 2022</p>
+                </div>
+              </div>
+              <form asp-action="AddCupom">
+              <div class="copy-button">
+                  <input type="hidden" asp-for="Shipping" />
+                <input id="copyvalue"  asp-for="Code" type="text"  />
+                <button class="copybtn">APPLY</button>
+              </div>
+              </form>
+            </div>
+          </div>
+        <div id="subtotal">
+            <h3>Cart Total</h3>
+                    <div class="containerRadio" style="position: absolute;margin-left: 200px;margin-top: -75px;">
+                <div id="radios">
+                   
+                    <label>
+                       
+                       <a asp-action="Index" asp-route-shipping="CttExpress" asp-route-percentage="@Model.Percentagem"><img id="ctt" src="~/images/cttrexpress.png" alt="Option 1" style="width: 60px;"></a>
+
+                        
+                      </label>
+                      
+                      <label style="padding-left: 80px;margin-top: -30px;">
+
+                        <a asp-action="Index" asp-route-shipping="CttCorreios" asp-route-percentage="@Model.Percentagem"><img  id="ctt" src="~/images/ctt.jpg" alt="Option 2" style="width: 60px;"></a>
+                        
+                      </label>
+                    
+                </div>
+            </div>
+            <table id="myTable">
+                 @foreach (var item in Model.CartItems) {
+                <tr>
+                   
+                    <td>Item - @item.Product.Name </td>
+                    <td>@item.TotalPrice €</td>
+                   
+                </tr>
+                }
+                @if(@Model.Shipping != null )
+                {
+                    <tr>
+                    <td>@Model.Shipping </td>
+                    <td>@Model.shipptaxes €</td>
+                    </tr>
+                }
+
+                    @if(@Model.Percentagem != 0 )
+                {
+                    <tr>
+                    <td>Discount with Code</td>
+                    <td>- @Model.Discount.ToString("F") €</td>
+                    </tr>
+                }
+                <tr>
+                   
+                    <td><strong>Total</strong></td>
+                    <td><strong>@Model.FinalPrice.ToString("F") €</strong></td>
+                </tr>
+            </table>
+            @if(@Model.Shipping != null)
+            {
+                 <button  class="normal"><a asp-action="Create" asp-controller="Order" asp-route-shipping="@Model.Shipping" asp-route-discount="@Model.Discount">Proceed to checkout</a></button>
+            }else{
+                <button type="button" class="normala" disabled="disabled" >Proceed to Checkout</button>
+            }
+           
+        </div>
+
+    </section>
+
+</body>

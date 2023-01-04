@@ -1,0 +1,148 @@
+﻿@model FreezyShop.Data.Entities.Order
+
+  <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tracking</title>
+        <link rel="stylesheet" href="~/css/tracking.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    </head>
+
+<body id="body9">
+    <div class="containertracker">
+        <div class="detailstracker">
+            <div class="ordertracker">
+                <h1>Order <span>XS78D</span></h1>
+            </div>
+            <div class="date">
+                <p>Expected Arrival @Model.DeliveryDate.ToShortDateString()</p>
+                <p>CTT <b>347264326478234872</b></p>
+            </div>
+        </div>
+
+               @if (@Model.DeleveryStatus == "Processed")
+            {
+           <ul>
+           
+                <li>
+                    <i class="fas fa-truck-loading icon"></i>
+                    <div class="active progresstest one">
+                        <p style="margin-top: 4px;">1</p>
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <p class="text">Processed</p>
+                </li>
+
+                <li>
+                    <i class="fas fa-shipping-fast icon"></i>
+                    <div class=" progresstest two">
+                        <p style="margin-top: 4px;">2</p>
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <p class="text">Shipped</p>
+                </li>
+
+                <li>
+                    <i class="fas fa-box-open icon"></i>
+                <div class=" progresstest three">
+                    <p style="margin-top: 4px;">3</p>
+                    <i class="fas fa-check"></i>
+                </div>
+                <p class="text">Arrived</p>
+                </li>
+                </ul>
+            }else if(@Model.DeleveryStatus == "Shipped")
+            {
+                 <ul>
+                 <li>
+                    <i class="fas fa-truck-loading icon"></i>
+                    <div class="active progresstest one">
+                        <p style="margin-top: 4px;">1</p>
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <p class="text">Processed</p>
+                </li>
+
+                <li>
+                    <i class="fas fa-shipping-fast icon"></i>
+                    <div class="active progresstest two">
+                        <p style="margin-top: 4px;">2</p>
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <p class="text">Shipped</p>
+                </li>
+
+                <li>
+                    <i class="fas fa-box-open icon"></i>
+                <div class=" progresstest three">
+                    <p style="margin-top: 4px;">3</p>
+                    <i class="fas fa-check"></i>
+                </div>
+                <p class="text">Arrived</p>
+                </li>
+                </ul>
+            }else if (@Model.DeleveryStatus == "Arrived")
+            {
+                 <ul>
+                 <li>
+                    <i class="fas fa-truck-loading icon"></i>
+                    <div class="active progresstest one">
+                        <p style="margin-top: 4px;">1</p>
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <p class="text">Processed</p>
+                </li>
+
+                <li>
+                    <i class="fas fa-shipping-fast icon"></i>
+                    <div class="active progresstest two">
+                        <p style="margin-top: 4px;">2</p>
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <p class="text">Shipped</p>
+                </li>
+
+                <li>
+                    <i class="fas fa-box-open icon"></i>
+                <div class="active progresstest three">
+                    <p style="margin-top: 4px;">3</p>
+                    <i class="fas fa-check"></i>
+                </div>
+                <p class="text">Arrived</p>
+                </li>
+                </ul>
+            }
+    </div>
+</body>
+            
+@*                @if (@Model.DeleveryStatus == "Processed")
+                {
+                    <ul id="progress" class="text-center">
+                     <li class="active"></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      
+                     </ul>
+                 }else
+                 if (@Model.DeleveryStatus == "Shipped"){
+                         <ul id="progress" class="text-center">
+                     <li class=""></li>
+                     <li class=""></li>
+                     <li class=""></li>
+                     <li class=""></li>
+                        </ul>
+                }else
+                if(@Model.DeleveryStatus=="Arrived"){
+                    <ul id="progress" class="text-center">
+                      <li class="active"></li>
+                     <li class="active"></li>
+                     <li class="active"></li>
+                     <li class="active"></li>
+                     </ul>
+                }
+                
+*@            
+   

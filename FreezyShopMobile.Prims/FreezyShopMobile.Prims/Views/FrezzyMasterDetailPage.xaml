@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:prism="http://prismlibrary.com"
+                  prism:ViewModelLocator.AutowireViewModel="True"
+                  x:Class="FreezyShopMobile.Prims.Views.FrezzyMasterDetailPage">
+
+    <MasterDetailPage.Master>
+        <ContentPage
+            Title="Menu"
+            BackgroundColor="{StaticResource ColorPrimary}"
+            IconImageSource="ic_micon">
+
+            <ContentPage.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="Android">0</On>
+                    <On Platform="iOS">0,20,0,0</On>
+                </OnPlatform>
+            </ContentPage.Padding>
+
+            <StackLayout Padding="10">
+                <Image HeightRequest="200" Source="namemenu"
+                       WidthRequest="200"/>
+                <ListView
+                    BackgroundColor="Transparent"
+                    HasUnevenRows="True"
+                    ItemsSource="{Binding Menus}"
+                    SeparatorVisibility="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="3">
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding SelectMenuCommand}"/>
+                                    </Grid.GestureRecognizers>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                    Grid.Column="0"
+                                    Margin="5"
+                                    HeightRequest="44"
+                                    Source="{Binding Icon}"
+                                    WidthRequest="44"/>
+                                    <Label
+                                    Grid.Column="1"
+                                    FontAttributes="Bold"
+                                    Text="{Binding Title}"
+                                    VerticalOptions="Center"
+                                        Scale="1.1"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    
+</MasterDetailPage>

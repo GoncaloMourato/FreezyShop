@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+         <link rel="stylesheet" href="~/css/Dashboard.css">
+            <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/css/multi-select-tag.css">
+
+</head>
+<body>
+  <section id="menu">
+         <div class="logotp">
+             <img src="~/images/LogoOficial.png" alt="">
+             <h2>Freezy</h2>
+         </div>
+
+         <div class="items">
+             @if(this.User.Identity.IsAuthenticated && this.User.IsInRole("Admin")){
+						
+                <li><i class="fas fa-chart-bar"></i><a asp-action="IndexAdmin" asp-controller="Admin">Dashboard</a></li>
+                 <li><i class="fas fa-percent"></i><a asp-action="PromoCodes" asp-controller="Admin">PromoCodes</a></li>
+                  <li><i class="fas fa-exchange-alt"></i><a asp-action="Logout" asp-controller="Account">Logout</a></li>
+            }
+            else{
+            <li><i class="fas fa-tshirt"></i><a asp-action="Index" asp-controller="Product">Products</a></li>
+            <li><i class="fas fa-list"></i><a asp-action="Index" asp-controller="Category">Categories</a></li>
+            <li><i class="fas fa-box-open"></i><a asp-action="StockProducts" asp-controller="Product">Stock</a></li>
+            <li><i class="fas fa-shopping-cart"></i><a asp-action="OrdersStaff" asp-controller="Order">Orders</a></li>
+            <li><i class="fas fa-exchange-alt"></i><a asp-action="ReturnsStaff" asp-controller="Return">Returns</a></li>
+            <li><i class="fas fa-sign-out-alt"></i><a asp-action="Logout" asp-controller="Account">Logout</a></li>
+            
+                
+                }
+        
+        </div>
+     </section>
+ 
+    
+</body>
+</html>
+  
+     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

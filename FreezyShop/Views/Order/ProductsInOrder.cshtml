@@ -1,0 +1,112 @@
+﻿@model FreezyShop.Data.Entities.Order
+@*<table class="table">
+    <thead>
+        <tr>
+     
+            <th>
+                Product
+            </th>
+            <th>
+               Price
+            </th>
+            <th>
+                Quantity
+            </th>
+             <th>
+                Total
+            </th>
+            <th>
+                Status
+            </th>
+            
+          
+    
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach(var item in Model.Items){
+     <tr>
+             <td>
+                 <img src="@Url.Content(@item.Product.ImageFullPath1)" alt="Image" class="rounded-circle" style="width: 70px; height:70px;  max-height: 100%; width: auto;" />
+            </td>
+      
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+        
+            
+            <td>
+                <a asp-action="Create" asp-controller="Return" asp-route-id="@item.Id">Return</a> 
+                <a asp-action="Details" asp-route-id="@item.ProductId">See Product in store</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Order List</title>
+        <link rel="stylesheet" href="css/home.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    </head>
+
+<body>
+
+    <section id="interface2">
+
+        <dir class="board2">
+            <table width="100%">
+                <thead>
+                    <tr>
+                        <td>Product</td>
+                        <td>Price</td>
+                        <td>Quantity</td>
+                        <td>Total</td>
+                        <td>Status</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var item in Model.Items){
+                    <tr>
+                        <td class="people">
+                            <img src="@Url.Content(@item.Product.ImageFullPath1)" alt="">
+                                <div class="people-de">
+                                    <h5> @Html.DisplayFor(modelItem => item.Product.Name)</h5>
+                                </div>                                
+                        </td>
+                        <td class="people-des">
+                            <h5> @Html.DisplayFor(modelItem => item.Product.Price)</h5>
+                        </td>
+
+                        <td class="people-des">
+                            <h5> @Html.DisplayFor(modelItem => item.Quantity)</h5>
+                        </td>
+                        
+
+                        <td class="people-des">
+                            <h5> @Html.DisplayFor(modelItem => item.Value)€</h5>
+                        </td>
+
+                        <td class="edit"><a asp-controller="Return" asp-action="Create" asp-route-id="@item.Id">Return</a></td>
+                    </tr>
+
+                    }
+                </tbody>
+            </table>
+        </dir>
+    </section>
+
+
+
+
+</body>

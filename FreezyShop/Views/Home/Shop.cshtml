@@ -1,0 +1,300 @@
+﻿@model FreezyShop.Models.ShopViewModel
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Loja Freezy</title>
+        <link rel="stylesheet" href="~/css/home.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    </head>
+
+<body>
+        <section id="page-header">
+        <h2>Feel Comfy</h2>
+        <p>Products highlight</p>
+    </section>
+
+    <div class="container-fluid">
+       
+          <form asp-action="Shop">
+              
+                 <input type="submit" value="Search" class="submit-btn">
+        <div class="row" id="fs_app">
+           
+            <section class="col-12" id="fs_header_bar">
+
+                <div class="row">
+                        <div class="fs_page_title">Filters</div>
+                </div>
+            </section>
+
+            
+            <div class="slidecontainer">
+                <input type="range" min="1" max="100" value="1" class="slider" asp-for="Price" id="myRange" style=" padding-left: 0px;padding-right: 0px;border-left-style: solid;border-left-width: 0px;">
+                <p>Value: 1 - <span id="demo"></span>€</p>
+              </div>
+                @if(@Model.Userhaspref == true)
+                {
+                    <section class="col-12" id="fs_size_body">
+                    <span class="heading">
+                      
+                    </span>
+                    <div class="contents">
+                        <ul>
+                            <li>
+                                <span> Your Preferences</span>
+                                <span class="text-right">
+                                        <input type="radio" asp-for="Userprefselected"  value="selected" id="outline" class="custom-radio">
+                                </span>
+                            </li>
+                            </ul>
+                            </div>
+                    </section>
+                     }
+            <section class="col-12" id="fs_categories_body">
+                <span class="heading">
+                    By Categories <button onclick="clearSelection('Category');"id="buttonsidebar">X</button>
+                </span>
+                <div class="contents">
+                   
+                    <ul>
+                            @for (int i = 0; i <= 5; i++)
+
+                            {
+                                <li>
+                                    <span>@Model.Categories[i].Name</span>
+                            <span class="text-right">
+                                
+                                     <input type="radio" id="outline" name="Category" class="custom-radio"  value="@Model.Categories[i].Name" asp-for="Category">
+                             
+                                   
+                                 
+                            </span>
+                        </li> 
+                            }
+                        
+
+                    </ul>
+                      
+                       
+                </div>
+            </section>
+
+                <section class="col-12" id="fs_size_body">
+                    <span class="heading">
+                        By Size <button onclick="clearSelection('Size');"id="buttonsidebar" style="padding-left: 58px;">X</button>
+                    </span>
+                    <div class="contents">
+                        <ul>
+                            <li>
+                                <span>XS</span>
+                                <span class="text-right">
+                                        <input type="radio" asp-for="Size"  value="XS" id="outline" class="custom-radio">
+                                </span>
+                            </li>
+    
+                            <li>
+                                <span>S</span>
+                                <span class="text-right">
+                                    <input type="radio" asp-for="Size" value="S" id="outline" class="custom-radio">
+                                </span>
+                              
+                            </li>
+                              
+                            <li>
+                                <span>M</span>
+                                <span class="text-right">
+                                    <input type="radio" asp-for="Size" value="M" id="outline" class="custom-radio">
+                                </span>
+                            </li>
+
+                            <li>
+                                <span>L</span>
+                                <span class="text-right">
+                                    <input type="radio" asp-for="Size"  value="L" id="outline" class="custom-radio">
+                                </span>
+                            </li>
+
+                            <li>
+                                <span>XL</span>
+                                <span class="text-right">
+                                    <input type="radio" asp-for="Size" value="XL" id="outline" class="custom-radio">
+                                </span>
+                            </li>
+
+                            <li>
+                                <span>XXL</span>
+                                <span class="text-right">
+                                    <input type="radio" asp-for="Size" value="XXL"id="outline" class="custom-radio">
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+            </section>
+            <section class="col-12" id="fs_size_body">
+                    <span class="heading">
+                        By Color <button onclick="clearSelection('Color');"id="buttonsidebar"  style="padding-left: 46px;">X</button>
+                    </span>
+                    <div class="contents">
+                        <ul>
+                            <li>
+                                <span>Black</span>
+                                <span class="text-right">
+                                        <input type="radio" asp-for="Color"  value="Black" id="outline" class="custom-radio">
+                                </span>
+                            </li>
+    
+                            <li>
+                                <span>White</span>
+                                <span class="text-right">
+                                    <input type="radio" asp-for="Color" value="White" id="outline" class="custom-radio">
+                                </span>
+                              
+                            </li>
+                              
+                            <li>
+                                <span>Grey</span>
+                                <span class="text-right">
+                                    <input type="radio" asp-for="Color" value="Grey" id="outline" class="custom-radio">
+                                </span>
+                            </li>
+
+                            <li>
+                                <span>Red</span>
+                                <span class="text-right">
+                                    <input type="radio" asp-for="Color"  value="Red" id="outline" class="custom-radio">
+                                </span>
+                            </li>
+
+                           
+
+                            <li>
+                                <span>Green</span>
+                                <span class="text-right">
+                                    <input type="radio" asp-for="Color" value="Green"id="outline" class="custom-radio">
+                                </span>
+                            </li>
+                            <li>
+                                <span>Yellow</span>
+                                <span class="text-right">
+                                    <input type="radio" asp-for="Color" value="Yellow"id="outline" class="custom-radio">
+                                </span>
+                            </li>
+                            <li>
+                                <span>Blue</span>
+                                <span class="text-right">
+                                    <input type="radio" asp-for="Color" value="Blue"id="outline" class="custom-radio">
+                                </span>
+                            </li>
+                             <li>
+                                <span>Pink</span>
+                                <span class="text-right">
+                                    <input type="radio" asp-for="Color" value="Pink"id="outline" class="custom-radio">
+                                </span>
+                            </li>
+                              <li>
+                                <span>Beige</span>
+                                <span class="text-right">
+                                    <input type="radio" asp-for="Color" value="Beige"id="outline" class="custom-radio">
+                                </span>
+                            
+                            </li>
+                         
+                        </ul>
+                    </div>
+            </section>
+             <section class="col-12" id="fs_size_body">
+                    <span class="heading">
+                        By Gender <button onclick="clearSelection('Gender');"id="buttonsidebar"  style="padding-left: 28px;">X</button>
+                    </span>
+                    <div class="contents">
+                        <ul>
+                           
+                            <li>
+                                <span>Both</span>
+                                <span class="text-right">
+                                    <input type="radio" asp-for="Gender" value="Both"id="outline" class="custom-radio">
+                                </span>
+                            </li>
+                             <li>
+                                <span>Female</span>
+                                <span class="text-right">
+                                    <input type="radio" asp-for="Gender" value="Female"id="outline" class="custom-radio">
+                                </span>
+                            </li>
+                              <li>
+                                <span>Male</span>
+                                <span class="text-right">
+                                    <input type="radio" asp-for="Gender" value="Male"id="outline" class="custom-radio">
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+            </section>
+           
+        </div>
+         </form>
+    </div>
+
+
+       
+   
+
+    <section id="product2"style="margin-left: 50px;     height: 1500px;" class="section-p1">  
+        <div class="pro-container2" style="justify-content: space-evenly;">
+            @foreach(var item in Model.PaginatedProperties()){
+            <div class="pro2" >
+                <img src="@Url.Content(@item.ImageFullPath1)" onclick="window.location.href='@Url.ActionLink("Product","Home", new {item.Id})';" alt="">
+                <div class="des2">
+                    <span>freezy</span>
+                    <h5>@item.Name</h5>
+                    <h4>@item.Price</h4>
+                </div>
+               @if(@item.InFavourite == true){
+                  <a class="cart2" ><input id="star1" class="star" type="checkbox" title="bookmark page" onclick="window.location.href='@Url.ActionLink("RemoveToFavourites2","Home", new {item.Id , @Model.Category})';"checked ></a>
+                }else{
+                    <a class="cart2" ><input id="star1" class="star" type="checkbox" onclick="window.location.href='@Url.ActionLink("AddToFavourites2","Home", new {item.Id, @Model.Category})';" title="bookmark page" ></a>
+                }
+            </div>
+            }
+        </div>
+    </section>
+
+    <section id="pagination">
+     
+         @for (int i = 1; i <= Model.PageCount(); i++){
+             <a  href="@Url.Action("Shop", new { page = i })">@i</a>
+            @if(i == Model.PageCount())
+            {
+                  <a  href="@Url.Action("Shop", new { page =@Model.CurrentPage +1 })"><i class="fas fa-arrow-right"></i></a>
+            }
+        }
+        
+      
+    </section>
+
+    <script>
+
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value;
+
+        slider.oninput = function() {
+          output.innerHTML = this.value;
+        }
+        </script>
+        <script>
+const clearSelection = (name) => {
+  const radioBtns = document.querySelectorAll(
+          "input[type='radio'][name='" + name + "']");
+  radioBtns.forEach((radioBtn) => {
+    if (radioBtn.checked === true)
+      radioBtn.checked = false;
+  });
+};
+        </script>
+
+</body>

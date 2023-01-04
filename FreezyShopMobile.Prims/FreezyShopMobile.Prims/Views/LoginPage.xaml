@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="FreezyShopMobile.Prims.Views.LoginPage"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource ColorBackground}">
+
+
+    <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+        <Image Source="Ficon" WidthRequest="150" HeightRequest="150"></Image>  
+        <Label Text="Email"
+               FontSize="Medium"
+               FontAttributes="Bold"/>
+        <Entry
+            Keyboard="Email"
+            Placeholder="Introduza o Email"
+            PlaceholderColor="RosyBrown"
+            Text="{Binding Email}"
+            TextColor="Black"/>
+        <Label Text="Palavra-Passe"
+               FontSize="Medium"
+               FontAttributes="Bold"/>
+        <Entry
+            Placeholder="Introduza a Palavra-Passe"
+            PlaceholderColor="RosyBrown"
+            Text="{Binding Password}"
+            TextColor="Black"
+            IsPassword="True"/>
+        <Button
+            FontSize="Medium"
+            FontAttributes="Bold"
+            Command="{Binding LoginCommand}"
+            IsEnabled="{Binding IsEnabled}"
+            CornerRadius="50"
+            Text="Login"
+            BackgroundColor="{StaticResource ColorPrimary}"
+            />
+        <ActivityIndicator
+            IsRunning="{Binding IsRunning}"
+            VerticalOptions="EndAndExpand"/>
+    </StackLayout>
+
+</ContentPage>

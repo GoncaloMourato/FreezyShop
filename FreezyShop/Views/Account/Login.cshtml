@@ -1,0 +1,54 @@
+﻿@model FreezyShop.Models.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/Login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Login</title>
+</head>
+<body>
+    <section class="area-login">
+        <div class="login">
+            <h2 data-text="Freezy">Freezy</h2>
+            <div>
+
+                <img src="~/images/LogoOficial.png">
+            </div>
+            <p>Hi there! Nice to see you Again.</p>
+            <form method="post">
+                 <div asp-validation-summary="ModelOnly"></div>
+
+                <input asp-for="UserName" type="email" placeholder="Email" autofocus required>
+                <span asp-validation-for="UserName" class="text-warning"></span>
+           
+
+                <input asp-for="Password"  type="password" placeholder="Password" required>
+                <span asp-validation-for="Password" class="text-warning"></span>
+                <a   asp-action="RecoverPassword" style="color: #333;margin-top: 10px;">Forgot password</a>
+             <input type="submit" value="Sign in">
+
+            <div class="or-container"><div class="line-separator"></div> <div class="or-label">or</div><div class="line-separator"></div></div>
+
+           
+
+            <label class="container">Remember me<input type="checkbox"  checked="checked"><span class="checkmark"></span></label>
+
+            </form>
+
+            <p>Not have an account yet?<a asp-action="Register">Create here</a></p>
+
+            <a  style="margin-top: 50px;"asp-action="Index" asp-controller="Home">Back</a>
+        </div>
+
+
+
+
+    </section>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>

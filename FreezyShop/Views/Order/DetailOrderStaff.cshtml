@@ -1,0 +1,63 @@
+﻿@model FreezyShop.Data.Entities.Order
+
+
+@{
+    Layout = null;
+}
+    <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Detail Order</title>
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+            <link rel="stylesheet" href="~/css/Detailorder.css">
+    </head>
+
+    <body>
+        <partial name="_Dashboard" />
+             <section style="    position: absolute;
+        margin-left: 316px;
+        width: 80%;" >
+                <h3 class="i-name">
+                    Products in Order
+                </h3>
+
+                <dir class="board2">
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <td>Product</td>
+                                <td>Price</td>
+                                <td>Quantity</td>
+                                <td>Size</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var item in Model.Items){
+                            <tr>
+                                <td class="people">
+                                    <img src="@Url.Content(@item.Product.ImageFullPath1)" alt="">
+                                        <div class="people-de">
+                                            <h5>@Html.DisplayFor(modelItem => item.Product.Name)</h5>
+                                        </div>                                
+                                </td>
+                                <td class="people-des">
+                                    <h5>@Html.DisplayFor(modelItem => item.Product.Price)</h5>
+                                </td>
+        
+                                <td class="people-des">
+                                    <h5>@Html.DisplayFor(modelItem => item.Quantity)</h5>
+                                </td>
+                                
+        
+                                <td class="people-des">
+                                    <h5>@Html.DisplayFor(modelItem => item.Size)</h5>
+                                </td>
+        
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </dir>
+                </section>
+    </body>

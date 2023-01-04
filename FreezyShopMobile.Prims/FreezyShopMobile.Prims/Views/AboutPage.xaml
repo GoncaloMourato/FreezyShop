@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="FreezyShopMobile.Prims.Views.AboutPage"
+             Title="{Binding Title}">
+
+    <StackLayout Padding="15">
+
+        <Label Text="Contate-Nos"
+               Padding="2"
+               FontAttributes="Bold"
+               FontSize="Title"
+               TextColor="{StaticResource ColorPrimary}"
+               HorizontalOptions="Center"/>
+        <StackLayout Padding="10">
+            <Label Text="Email para contacto:"
+               Padding="2"
+               FontAttributes="Bold"
+               FontSize="Medium"/>
+            <Label Text="freezyshop22@gmail.com"
+               TextDecorations="Underline"
+               Padding="5"/>
+            <Label Text="Para mais Imformação visite nos em:"
+               FontAttributes="Bold"
+               Padding="2"
+               FontSize="Medium"/>
+            <Label Text="https://freezyshoop2.azurewebsites.net"
+               TextDecorations="Underline"
+               Padding="5"/>
+        </StackLayout>
+        <StackLayout>
+            <Label Padding="20"
+               HorizontalOptions="Center"/>
+
+            <Label Text="Sobre"
+               Padding="2"
+               FontAttributes="Bold"
+               FontSize="Title"
+               TextColor="{StaticResource ColorPrimary}"
+               HorizontalOptions="Center"/>
+            <StackLayout Padding="10">
+                <Label Text="FreezyShop:"
+               Padding="2"
+               FontAttributes="Bold"
+               FontSize="Medium"/>
+                <Label Text="Freezy Shop apareceu como um sonho em 2018 e agora é uma realidade :3
+                       
+                       
+                       
+                       
+                       "
+               Padding="5"/>
+                
+                <Label Text="
+                       
+                       
+                       Desenvolvedores:"
+               FontAttributes="Bold"
+               Padding="2"
+               FontSize="Body"/>
+                <StackLayout Padding="5">
+                    <Label Text="Cátia Santos"/>
+                    <Label Text="Gonçalo Mourato"/>
+                    <Label Text="Ivo Francisco"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

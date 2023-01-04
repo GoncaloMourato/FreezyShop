@@ -1,0 +1,289 @@
+﻿/* Profile */
+
+select {
+    padding-top: 30px;
+    width: 90%;
+    height: 40px;
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    font-size: 15px;
+    text-transform: none;
+    resize: none;
+    background-color: #fff;
+}
+
+#categoriasss {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#catata {
+    width: 50%;
+    margin-bottom: 30px;
+}
+
+
+.containerProfileNew {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    background: #E3E6F3;
+}
+
+    .containerProfileNew #formProfile {
+        padding: 20px;
+        width: 900px;
+        background: #fff;
+    }
+
+        .containerProfileNew #formProfile .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+            .containerProfileNew #formProfile .row .col {
+                flex: 1 1 250px;
+            }
+
+                .containerProfileNew #formProfile .row .col .title {
+                    font-size: 20px;
+                    color: #333;
+                    padding-bottom: 5px;
+                    text-transform: uppercase;
+                }
+
+                .containerProfileNew #formProfile .row .col .inputBox {
+                    margin: 15px 0;
+                }
+
+                    .containerProfileNew #formProfile .row .col .inputBox span {
+                        margin-bottom: 10px;
+                        display: block;
+                    }
+
+        .containerProfileNew #formProfile input {
+            width: 100%;
+            border: 1px solid #ccc;
+            padding: 10px 15px;
+            font-size: 15px;
+            text-transform: none;
+        }
+
+        .containerProfileNew #formProfile .row .col .inputBox input:focus {
+            border: 1px solid #000;
+        }
+
+        .containerProfileNew #formProfile .flex {
+            display: flex;
+            gap: 15px;
+        }
+
+        .containerProfileNew #formProfile .row .col .flex .inputBox {
+            margin-top: 5px;
+        }
+
+        .containerProfileNew #formProfile .row .col .inputBox img {
+            height: 34px;
+            margin-top: 5px;
+            filter: drop-shadow(0 0 1px #000);
+        }
+
+        .containerProfileNew #formProfile .submit-btn {
+            align-items: center;
+            margin-left: 305px;
+            width: 40%;
+            padding: 12px;
+            font-size: 17px;
+            background: #bf85fa;
+            color: #222;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+
+            .containerProfileNew #formProfile .submit-btn:hover {
+                background: #9468ac;
+            }
+
+#formProfile {
+    max-width: 450px;
+    width: 90%;
+    background: #fff;
+    margin: 17vh auto 0 auto;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    outline: none;
+    resize: none;
+}
+
+#dindin {
+    width: 13%;
+    padding: 10px;
+    box-sizing: border-box;
+    outline: none;
+    resize: none;
+    border: 1px solid #D3D3D3;
+}
+
+#message {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    outline: none;
+    resize: none;
+    border: 1px solid #D3D3D3;
+}
+
+.center {
+    text-align: center;
+}
+
+input[type="submit"] {
+    margin-top: 30px;
+    width: 90%;
+    max-width: 200px;
+    background: #bf85fa;
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.picture__input {
+    display: none;
+}
+
+.picture {
+    width: 100%;
+    height: 350px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #222;
+    cursor: pointer;
+    transition: color 300ms ease-in-out;
+    outline: none;
+}
+
+.picture__img {
+    max-width: 80%;
+    max-height: 440px;
+}
+/*creditcard*/
+#inputBox {
+    position: relative;
+    width: 100%;
+}
+
+#logo {
+    width: 46px;
+    height: 30px;
+    position: absolute;
+    top: 5px;
+    right: 7px;
+}
+
+.visa {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 0 no-repeat;
+}
+
+.mastercard {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -30px no-repeat;
+}
+
+.amex {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -60px no-repeat;
+}
+
+.diners {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -90px no-repeat;
+}
+
+.discover {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -120px no-repeat;
+}
+
+.shopping {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -150px no-repeat;
+}
+
+.naranja {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -180px no-repeat;
+}
+
+.qida {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -210px no-repeat;
+}
+
+.clubdia {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -240px no-repeat;
+}
+
+.musicred {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -270px no-repeat;
+}
+
+.nevada {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -300px no-repeat;
+}
+
+.tuya {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -330px no-repeat;
+}
+
+.laanonima {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -360px no-repeat;
+}
+
+.crediguia {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -390px no-repeat;
+}
+
+.patagonia {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -410px no-repeat;
+}
+
+.sol {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -440px no-repeat;
+}
+
+.cabal {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -470px no-repeat;
+}
+
+.cencosud {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -500px no-repeat;
+}
+
+.credimas {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -530px no-repeat;
+}
+
+.carrefour {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -560px no-repeat;
+}
+
+.grupar {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -590px no-repeat;
+}
+
+.wishgift {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -610px no-repeat;
+}
+
+.unknown {
+    background: url("https://jscardvalidator-mpccmwdwqf.now.sh/cards_sprite_compressed_30.jpg") 0 -640px no-repeat;
+}

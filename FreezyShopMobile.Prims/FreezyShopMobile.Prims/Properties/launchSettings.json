@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "FreezyShopMobile.Prims": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

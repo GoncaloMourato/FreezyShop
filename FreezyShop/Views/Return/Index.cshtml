@@ -1,0 +1,119 @@
+﻿@model IEnumerable<FreezyShop.Data.Entities.Return>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@*<h1>Index</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+        
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+        
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+             <td>
+                <img src="@Url.Content(@item.ImageFullPath1)" alt="Image" class="rounded-circle" style="width: 70px; height:70px;  max-height: 100%; width: auto;"> 
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reason)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+           
+            <td>
+                    @if(@item.Status == "Waiting for Confirmation")
+                    {
+                          <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    }
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@
+
+
+
+
+   <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Order List</title>
+        <link rel="stylesheet" href="css/home.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    </head>
+
+<body>
+
+    
+    <section id="interface">
+
+        <dir class="board">
+            <table width="100%">
+                <thead>
+                    <tr>
+                        <td>Reason</td>
+                        <td>Descripton</td>
+                        <td>Status</td>
+                        
+                        <td>Remove</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model) {
+                    <tr>
+                        <td class="people">
+                                <div class="people-de">
+                                      @Html.DisplayFor(modelItem => item.Reason)
+                                </div>                                
+                        </td>
+                        <td class="people-des">
+                             @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+
+                        <td class="active">
+                             @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+                             @if(@item.Status == "Waiting for Confirmation")
+                    {
+                     
+                        
+                          <td class="edit"><a asp-action="Delete" asp-route-id="@item.Id">Remove</a></td>
+                    }
+                        
+
+                      
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </dir>
+    </section>
+
+</body>
