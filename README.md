@@ -81,7 +81,7 @@ The objective of the project is to simulate an online fashion shop for a brand t
 
 # Authors
 
-[Gonçalo Mourato](https://github.com/Catia0202)
+  [Gonçalo Mourato](https://github.com/GoncaloMourato)
 
 [Cátia Santos](https://github.com/Catia0202)
 
