@@ -3,7 +3,7 @@
 
 # About FreezyShop
 
-This project is a full stack website and mobile app builted as a final project in my path of **CINEL**  with my collegue and friend [Cátia Santos](https://github.com/Catia0202).
+This project is a full stack website and mobile app builted as a final project in my path of **CINEL**.
 
 The objective of the project is to simulate an online fashion shop for a brand that we create.The entire website was designed thinking how to grant the customer  an experience equivalent of an physical store.To serve our customer we have added some features that bring more joy and that help you feel comfortable with the clothes you wear. 
 
